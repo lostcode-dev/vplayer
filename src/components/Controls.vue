@@ -1,5 +1,5 @@
 <template>
-  <div id="controls" class="w-full flex bottom-0 absolute z-10 py-2 bg-slate-200">
+  <div id="controls" class="w-full flex bottom-0 absolute z-40 py-2 bg-slate-200">
     <button @click="isPaused ? $emit('pause') : $emit('play')" class="px-3 py-1">
       <play v-if="!isPaused" :width="20" :height="20" />
       <pause v-else :width="20" :height="20" />
@@ -28,13 +28,21 @@
         <volume-high v-else :width="20" :height="20" />
       </span>
     </button>
+    
     <div class="flex w-full justify-center items-center">
       <span>
         {{ timeFormated }}
       </span>
-      <div class="ml-2 progress-bar">
-        <div class="progress" :style="`width:${progressTime}%;`"></div>
-      </div>
+
+      <input
+        type="range"
+        class="current-time-input w-full mx-2"
+        min="0"
+        :max="duration"
+        step="0.01"
+        :value="currentTime"
+        @input="$emit('update:changeTime', $event.target.value)"
+      />
     </div>
 
     <button @click="$emit('requestFullScreen')" class="px-3 py-1">
@@ -95,10 +103,17 @@ export default {
     progressTime: {
       type: Number,
       default: 0
+    },
+    currentTime: {
+      type: Number,
+      default: 0
+    },
+    duration: {
+      type: Number,
+      default: 0
     }
   },
-  setup() {
-  }
+  setup() {}
 }
 </script>   
 
@@ -108,13 +123,6 @@ export default {
     width: 100%;
     height: 5px;
     background-color: #ccc;
-  }
-
-  .progress {
-    height: 100%;
-    width: 0;
-    background-color: #ff0000;
-    transition: width 0.7s ease;
   }
 
   .volume-input {

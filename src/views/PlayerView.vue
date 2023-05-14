@@ -1,5 +1,9 @@
 <template>
   <div id="player" class="relative">
+    <thumbnails type="input" :currentTime="currentTime" />
+    <thumbnails type="output" :isPaused="resumePlay"/>
+    <thumbnails type="ended" :currentTime="currentTime" :duration="duration"/>
+
     <play-auto-smart v-if="autoSmart" @play-auto-smart="playAutoSmart()" />
     <resume-play v-if="resumePlay" @play-resume="playResume()" @reload-resume="reloadResume()" />
     <video
@@ -22,7 +26,8 @@
       @pause="pause()"
       @retro="retro()"
       @skip="skip()"
-      @update:change-volume="newValue => changeVolume(newValue)"
+      @update:change-volume="value => changeVolume(value)"
+      @update:change-time="value => changeTime(value)"
       @requestFullScreen="requestFullScreen()"
       @change-muted="changeMuted()"
       :timeFormated="timeFormated"
@@ -30,6 +35,8 @@
       :isMuted="muted"
       :volume="currentVolume"
       :progressTime="progressTime"
+      :currentTime="currentTime"
+      :duration="duration"
     />
   </div>
 </template>
@@ -40,9 +47,10 @@ import { defineComponent, reactive, ref, toRefs, computed } from 'vue'
 import Controls from '../components/Controls.vue'
 import PlayAutoSmart from '../components/PlayAutoSmart.vue'
 import ResumePlay from '../components/ResumePlay.vue'
+import Thumbnails from '../components/Thumbnails.vue'
 
 export default defineComponent({
-  components: { PlayAutoSmart, ResumePlay, Controls },
+  components: { PlayAutoSmart, ResumePlay, Controls, Thumbnails },
   setup() {
     const playerVideo = ref(null)
     const state = reactive({
@@ -54,7 +62,8 @@ export default defineComponent({
       resumePlay: false,
       currentTime: 0,
       currentVolume: 1,
-      progressTime: 0
+      progressTime: 0,
+      duration: 0
     })
 
     const playAutoSmart = () => {
@@ -105,9 +114,15 @@ export default defineComponent({
       state.currentVolume = value
     }
 
+    const changeTime = (value) => {
+      playerVideo.value.currentTime = value
+      state.currentTime = value
+    }
+
     const timeUpdated = () => {
       state.currentVolume = playerVideo.value.volume
       state.currentTime = playerVideo.value.currentTime
+      state.duration = playerVideo.value.duration
       state.progressTime = getProgressTime()
     }
 
@@ -154,7 +169,8 @@ export default defineComponent({
       timeUpdated,
       convertTime,
       timeFormated,
-      changeMuted
+      changeMuted,
+      changeTime
     }
   }
 })

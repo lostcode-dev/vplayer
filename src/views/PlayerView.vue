@@ -1,84 +1,48 @@
 <template>
-  <div class="about">
-    <div class="relative">
-      <div v-if="autoSmart" class="w-full h-full flex justify-center items-center absolute z-10">
-        <button
-          @click="playAutoSmart()"
-          style="top: 39%; right: 26%"
-          class="px-4 py-2 border-solid border-2 border-indigo-200 bg-slate-200 rounded-lg"
-        >
-          Clique para ouvir
-        </button>
-      </div>
-      <div
-        v-if="resumePlay"
-        class="w-full h-full flex justify-center items-center absolute bg-indigo-200 z-10"
-      >
-        <div>
-          <p class="text-center my-4">Você já começou a assistir esse vídeo</p>
-          <div>
-            <button class="px-4 py-2" @click="playResume()">Continuar Assistindo</button>
-            <button class="px-4 py-2" @click="reloadResume()">Assistir do início?</button>
-          </div>
-        </div>
-      </div>
-      <div
-        v-if="controls" 
-        class="w-full bottom-0 absolute z-10 py-2 bg-slate-200">
-        <button
-          @click="pause()"
-          class="px-4 py-2 border-solid border-2 border-indigo-200 bg-slate-200 rounded-lg"
-        >
-          Pause
-        </button>
-        <button
-          @click="retro()"
-          class="px-4 py-2 border-solid border-2 border-indigo-200 bg-slate-200 rounded-lg"
-        >
-          Retro
-        </button>
-        <button
-          @click="skip()"
-          class="px-4 py-2 border-solid border-2 border-indigo-200 bg-slate-200 rounded-lg"
-        >
-          Skip
-        </button>
-        <button
-          @click="changeVolume()"
-          class="px-4 py-2 border-solid border-2 border-indigo-200 bg-slate-200 rounded-lg"
-        >
-          Volume
-        </button>
-        <button
-          @click="requestFullScreen()"
-          class="px-4 py-2 border-solid border-2 border-indigo-200 bg-slate-200 rounded-lg"
-        >
-          Full Screen
-        </button>
-
-        {{ timeFormated }}
-      </div>
-      <video
-        ref="playerVideo"
-        :width="width"
-        :autoplay="autoplay"
-        :muted="muted"
-        @ended="handlerEnd"
-        @timeupdate="timeUpdated"
-      >
-        <source src="../assets/mov_bbb.mp4" type="video/mp4" />
-        <source src="../assets/mov_bbb.ogg" type="video/ogg" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+  <div id="player" class="relative">
+    <play-auto-smart v-if="autoSmart" @play-auto-smart="playAutoSmart()" />
+    <resume-play v-if="resumePlay" @play-resume="playResume()" @reload-resume="reloadResume()" />
+    <video
+      ref="playerVideo"
+      :width="width"
+      :autoplay="autoplay"
+      :muted="muted"
+      @ended="handlerEnd"
+      @timeupdate="timeUpdated"
+      :controls="false"
+      @click="pause()"
+    >
+      <source src="../assets/mov_bbb.mp4" type="video/mp4" />
+      <source src="../assets/mov_bbb.ogg" type="video/ogg" />
+      Your browser does not support the video tag.
+    </video>
+    <controls
+      v-if="controls"
+      @play="playResume()"
+      @pause="pause()"
+      @retro="retro()"
+      @skip="skip()"
+      @update:change-volume="newValue => changeVolume(newValue)"
+      @requestFullScreen="requestFullScreen()"
+      @change-muted="changeMuted()"
+      :timeFormated="timeFormated"
+      :isPaused="!resumePlay"
+      :isMuted="muted"
+      :volume="currentVolume"
+      :progressTime="progressTime"
+    />
   </div>
 </template>
 
 
 <script>
 import { defineComponent, reactive, ref, toRefs, computed } from 'vue'
+import Controls from '../components/Controls.vue'
+import PlayAutoSmart from '../components/PlayAutoSmart.vue'
+import ResumePlay from '../components/ResumePlay.vue'
 
 export default defineComponent({
+  components: { PlayAutoSmart, ResumePlay, Controls },
   setup() {
     const playerVideo = ref(null)
     const state = reactive({
@@ -89,10 +53,13 @@ export default defineComponent({
       autoSmart: true,
       resumePlay: false,
       currentTime: 0,
+      currentVolume: 1,
+      progressTime: 0
     })
 
     const playAutoSmart = () => {
       playerVideo.value.muted = false
+      state.muted = false
       state.autoSmart = false
     }
 
@@ -100,17 +67,24 @@ export default defineComponent({
       playerVideo.value.play()
       state.resumePlay = false
       state.muted = false
+      state.autoSmart = false
     }
 
     const reloadResume = () => {
       playerVideo.value.load()
       state.resumePlay = false
       state.muted = false
+      state.autoSmart = false
     }
 
     const handlerEnd = () => {
       state.autoSmart = false
       state.resumePlay = true
+    }
+
+    const changeMuted = () => {
+      state.muted = !playerVideo.value.muted
+      playerVideo.value.muted = state.muted
     }
 
     const pause = () => {
@@ -126,12 +100,15 @@ export default defineComponent({
       playerVideo.value.currentTime += 10
     }
 
-    const changeVolume = () => {
-      playerVideo.value.volume -= 0.2
+    const changeVolume = (value) => {
+      playerVideo.value.volume = value
+      state.currentVolume = value
     }
 
     const timeUpdated = () => {
-      state.currentTime = playerVideo.value.currentTime;
+      state.currentVolume = playerVideo.value.volume
+      state.currentTime = playerVideo.value.currentTime
+      state.progressTime = getProgressTime()
     }
 
     const requestFullScreen = () => {
@@ -147,12 +124,18 @@ export default defineComponent({
     })
 
     const convertTime = (timeSeconds) => {
-      var hour = 0;
-      var seconds = parseInt(timeSeconds);
+      var hour = 0
+      var seconds = parseInt(timeSeconds)
 
-      var hourFormated = hour < 10 ? "0" + hour : hour;
-      var secondsFormated = seconds < 10 ? "0" + seconds : seconds;
-      return hourFormated + ":" + secondsFormated;
+      var hourFormated = hour < 10 ? '0' + hour : hour
+      var secondsFormated = seconds < 10 ? '0' + seconds : seconds
+      return hourFormated + ':' + secondsFormated
+    }
+
+    const getProgressTime = () => {
+      const duration = playerVideo.value.duration
+      const currentTime = playerVideo.value.currentTime
+      return (currentTime / duration) * 100
     }
 
     return {
@@ -170,19 +153,27 @@ export default defineComponent({
       changeVolume,
       timeUpdated,
       convertTime,
-      timeFormated
+      timeFormated,
+      changeMuted
     }
   }
 })
 </script>
 
-
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+#controls {
+  display: none;
 }
-</style>
+
+#player:hover #controls {
+  display: flex;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+video::-webkit-media-controls {
+  display:none !important;
+}
+</style>>

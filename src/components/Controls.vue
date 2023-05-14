@@ -1,0 +1,135 @@
+<template>
+  <div id="controls" class="w-full flex bottom-0 absolute z-10 py-2 bg-slate-200">
+    <button @click="isPaused ? $emit('pause') : $emit('play')" class="px-3 py-1">
+      <play v-if="!isPaused" :width="20" :height="20" />
+      <pause v-else :width="20" :height="20" />
+    </button>
+    <button @click="$emit('retro')" class="px-3 py-1">
+      <rewind-ten :width="20" :height="20" />
+    </button>
+    <button @click="$emit('skip')" class="px-3 py-1">
+      <fast-foward-ten :width="20" :height="20" />
+    </button>
+    <button class="btn-volume relative px-3 py-1">
+      <input
+        type="range"
+        class="volume-input absolute rotate-[-90deg] max-w-[150px] origin-bottom"
+        min="0"
+        max="1"
+        step="0.01"
+        :value="volume"
+        @input="$emit('update:changeVolume', $event.target.value)"
+      />
+      <span @click="$emit('changeMuted')">
+        <volume-mute v-if="isMuted" :width="20" :height="20" />
+        <volume-off v-else-if="volume == 0" :width="20" :height="20" />
+        <volume-low v-else-if="volume <= 0.3" :width="20" :height="20" />
+        <volume-medium v-else-if="volume > 0.3 && volume <= 0.65" :width="20" :height="20" />
+        <volume-high v-else :width="20" :height="20" />
+      </span>
+    </button>
+    <div class="flex w-full justify-center items-center">
+      <span>
+        {{ timeFormated }}
+      </span>
+      <div class="ml-2 progress-bar">
+        <div class="progress" :style="`width:${progressTime}%;`"></div>
+      </div>
+    </div>
+
+    <button @click="$emit('requestFullScreen')" class="px-3 py-1">
+      <full-screen v-if="!isFullScreen" :width="20" :height="20" />
+      <full-screen-exit v-else :width="20" :height="20" />
+    </button>
+  </div>
+</template>
+
+<script>
+import FastFowardTen from './icons/FastFowardTen.vue'
+import FullScreen from './icons/FullScreen.vue'
+import FullScreenExit from './icons/FullScreenExit.vue'
+import Pause from './icons/Pause.vue'
+import Play from './icons/Play.vue'
+import RewindTen from './icons/RewindTen.vue'
+import VolumeHigh from './icons/VolumeHigh.vue'
+import VolumeLow from './icons/VolumeLow.vue'
+import VolumeMedium from './icons/VolumeMedium.vue'
+import VolumeMute from './icons/VolumeMute.vue'
+import VolumeOff from './icons/VolumeOff.vue'
+
+export default {
+  components: {
+    Play,
+    Pause,
+    RewindTen,
+    FastFowardTen,
+    VolumeHigh,
+    VolumeLow,
+    VolumeMedium,
+    VolumeOff,
+    VolumeMute,
+    FullScreenExit,
+    FullScreen
+  },
+  props: {
+    isPaused: {
+      type: Boolean,
+      default: false
+    },
+    isMuted: {
+      type: Boolean,
+      default: false
+    },
+    isFullScreen: {
+      type: Boolean,
+      default: false
+    },
+    timeFormated: {
+      type: Number,
+      default: 0
+    },
+    volume: {
+      type: Number,
+      default: 0
+    },
+    progressTime: {
+      type: Number,
+      default: 0
+    }
+  },
+  setup() {
+  }
+}
+</script>   
+
+<style>
+@media (min-width: 1024px) {
+  .progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #ccc;
+  }
+
+  .progress {
+    height: 100%;
+    width: 0;
+    background-color: #ff0000;
+    transition: width 0.7s ease;
+  }
+
+  .volume-input {
+    right: -110%;
+    bottom: 337%;
+  }
+
+  .btn-volume:hover .volume-input,
+  .volume-input:hover {
+    visibility: visible;
+  }
+
+  .volume-input {
+    visibility: hidden;
+    transition: visibility 0.3s ease-out;
+  }
+}
+</style>

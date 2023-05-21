@@ -1,11 +1,11 @@
 <template>
-    <div style="height: calc(100vh - 3.5rem);" class="flex justify-center items-center pt-3" >
+    <div style="height: calc(100vh - 3.5rem);" class="max-w-5xl flex justify-center items-center pt-3 mx-[auto]" >
         <div>
             <h1 class="font-bold text-5xl text-center py-4">Lorem ipsum dolor sit. <br> Scelerisque!</h1>
-            <p class="font-semibold	text-center py-2">Nullam non facilisis risus, sed tempus leo. Aenean magna erat, sollicitudin in felis ac, maximus placerat orci.<br> In vel ligula justo.</p>
-            <div style="height: 200px; width: 400px" class="mx-[auto] my-6 bg-indigo-100"></div>
-            <div class="flex justify-center">
-                <button class="rounded-lg text-xl px-8 py-2 bg-indigo-700 font-semibold text-white hover:bg-indigo-600" href="">
+            <p class="font-semibold	text-center py-2 mb-6">Nullam non facilisis risus, sed tempus leo. Aenean magna erat, sollicitudin in felis ac, maximus placerat orci.<br> In vel ligula justo.</p>
+            <iframe class="w-full h-96 " src="https://www.youtube.com/embed/Q2-0qZoYBA0" title="Barulho de Chuva para Dormir Profundamente e Relaxar - Som de Chuva com Trovões - Rain sounds #61" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="flex justify-center mt-6">
+                <button class="rounded-lg text-2xl px-14 py-3 bg-emerald-500 font-semibold text-white" >
                     Ver Planos
                 </button>
             </div>

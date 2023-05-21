@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="w-full bg-indigo-100"
+    class="w-full bg-emerald-100"
   >
     <nav class="flex justify-center mx-8 px-4 py-4 font-semibold">
       <div>

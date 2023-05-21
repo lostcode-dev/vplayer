@@ -1,6 +1,6 @@
 <template>
   <header
-    class="w-full bg-indigo-100 fixed"
+    class="w-full bg-emerald-50 fixed z-20"
   >
     <nav class="flex justify-between mx-8 px-4 py-5 font-semibold">
       <div>

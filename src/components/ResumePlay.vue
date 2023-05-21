@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full flex justify-center items-center absolute bg-indigo-200 z-10"
+    class="w-full h-full flex justify-center items-center absolute bg-emerald-200 z-10"
   >
     <div>
       <h3 class="text-center my-4">Você já começou a assistir esse vídeo</h3>

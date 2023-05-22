@@ -15,9 +15,9 @@
         <a class="rounded-lg px-4 py-2 font-semibold" href="">
           Ajuda
         </a>
-        <a class="rounded-lg px-4 py-2 font-semibold" href="">
+        <router-link class="rounded-lg px-4 py-2 font-semibold" :to="{ name: 'login'}">
           Login
-        </a>
+        </router-link>
         <Button class="ml-4"/>
       </div>
     </nav>

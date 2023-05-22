@@ -7,7 +7,7 @@
     <SectionSix />
 </template>
 
-<script>
+<script lang="ts">
 import Section from './Section.vue'
 import SectionTwo from './SectionTwo.vue'
 import SectionTree from './SectionTree.vue'

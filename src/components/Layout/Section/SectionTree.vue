@@ -22,7 +22,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import Swiper from "../../Swiper.vue";
 
 export default {

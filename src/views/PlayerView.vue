@@ -41,7 +41,7 @@
 </template>
 
 
-<script>
+<script lang="ts">
 import { defineComponent, reactive, ref, toRefs, computed } from 'vue'
 import Controls from '../components/Controls.vue'
 import PlayAutoSmart from '../components/PlayAutoSmart.vue'

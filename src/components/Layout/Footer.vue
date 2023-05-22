@@ -15,7 +15,7 @@
   </footer>
 </template>
 
-<script>
+<script lang="ts" lang="ts">
 export default {
   components: { },
   setup() {}

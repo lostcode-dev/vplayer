@@ -57,7 +57,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import FastFowardTen from '../../icons/FastFowardTen.vue'
 import Pause from '../../icons/Pause.vue'
 import Play from '../../icons/Play.vue'

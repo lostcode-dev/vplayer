@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Reload from './icons/Reload.vue'
 import Play from './icons/Play.vue'
 

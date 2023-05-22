@@ -14,7 +14,7 @@
     </swiper-slide>
   </swiper>
 </template>
-<script>
+<script lang="ts">
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper'
 
 // Import Swiper Vue.js components

@@ -52,7 +52,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import FastFowardTen from './icons/FastFowardTen.vue'
 import FullScreen from './icons/FullScreen.vue'
 import FullScreenExit from './icons/FullScreenExit.vue'

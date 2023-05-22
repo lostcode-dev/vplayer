@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import VolumeVariantOff from './icons/VolumeVariantOff.vue'
 export default {
   components: { VolumeVariantOff },

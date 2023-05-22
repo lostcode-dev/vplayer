@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Footer from './Footer.vue'
 import Header from './Header.vue'
 import Home from './Section/Home.vue'

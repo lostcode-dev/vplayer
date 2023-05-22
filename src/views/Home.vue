@@ -11,9 +11,8 @@ import Footer from '../components/Layout/Footer.vue'
 import Header from '../components/Layout/Header.vue'
 import Home from '../components/Layout/Section/Home.vue'
 
-
 export default {
-  components: { Header, Footer, Home, Footer },
+  components: { Header, Footer, Home },
   setup() {}
 }
 </script>

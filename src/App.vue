@@ -1,4 +1,4 @@
-<script lang="ts" lang="ts">
+<script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import Layout from './components/Layout/Layout.vue'
 export default {

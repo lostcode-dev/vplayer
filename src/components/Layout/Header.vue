@@ -24,7 +24,7 @@
   </header>
 </template>
 
-<script lang="ts" lang="ts">
+<script lang="ts">
 import Button from '../Button.vue'
 
 export default {

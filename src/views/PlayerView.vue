@@ -1,8 +1,8 @@
 <template>
   <div id="player" class="relative">
     <thumbnails type="input" :currentTime="currentTime" />
-    <thumbnails type="output" :isPaused="resumePlay"/>
-    <thumbnails type="ended" :currentTime="currentTime" :duration="duration"/>
+    <thumbnails type="output" :isPaused="resumePlay" />
+    <thumbnails type="ended" :currentTime="currentTime" :duration="duration" />
 
     <play-auto-smart v-if="autoSmart" @play-auto-smart="playAutoSmart()" />
     <resume-play v-if="resumePlay" @play-resume="playResume()" @reload-resume="reloadResume()" />
@@ -25,8 +25,8 @@
       @pause="pause()"
       @retro="retro()"
       @skip="skip()"
-      @update:change-volume="value => changeVolume(value)"
-      @update:change-time="value => changeTime(value)"
+      @update:change-volume="(value) => changeVolume(value)"
+      @update:change-time="(value) => changeTime(value)"
       @requestFullScreen="requestFullScreen()"
       @change-muted="changeMuted()"
       :timeFormated="timeFormated"
@@ -48,10 +48,27 @@ import PlayAutoSmart from '../components/PlayAutoSmart.vue'
 import ResumePlay from '../components/ResumePlay.vue'
 import Thumbnails from '../components/Thumbnails.vue'
 
+interface PlayerVideo {
+  muted: boolean
+  play: any
+  load: any
+  pause: any
+  currentTime: number
+  volume: number
+  duration: number
+  requestFullscreen: any
+  exitFullscreen: any
+}
+
+interface PlayerVideoRef {
+  value: PlayerVideo | null
+}
+ 
+
 export default defineComponent({
   components: { PlayAutoSmart, ResumePlay, Controls, Thumbnails },
   setup() {
-    const playerVideo = ref(null)
+    const playerVideo: PlayerVideoRef = ref(null)
     const state = reactive({
       width: 720,
       autoplay: true,
@@ -66,20 +83,26 @@ export default defineComponent({
     })
 
     const playAutoSmart = () => {
-      playerVideo.value.muted = false
+      if (playerVideo.value) {
+        playerVideo.value.muted = false
+      }
       state.muted = false
       state.autoSmart = false
     }
 
     const playResume = () => {
-      playerVideo.value.play()
+      if (playerVideo.value) {
+        playerVideo.value.play()
+      }
       state.resumePlay = false
       state.muted = false
       state.autoSmart = false
     }
 
     const reloadResume = () => {
-      playerVideo.value.load()
+      if (playerVideo.value) {
+        playerVideo.value.load()
+      }
       state.resumePlay = false
       state.muted = false
       state.autoSmart = false
@@ -91,55 +114,73 @@ export default defineComponent({
     }
 
     const changeMuted = () => {
-      state.muted = !playerVideo.value.muted
-      playerVideo.value.muted = state.muted
+      if (playerVideo.value) {
+        state.muted = !playerVideo.value.muted
+        playerVideo.value.muted = state.muted
+      }
     }
 
     const pause = () => {
-      playerVideo.value.pause()
+      if (playerVideo.value) {
+        playerVideo.value.pause()
+      }
       state.resumePlay = true
     }
 
     const retro = () => {
-      playerVideo.value.currentTime -= 10
+      if (playerVideo.value) {
+        playerVideo.value.currentTime -= 10
+      }
     }
 
     const skip = () => {
-      playerVideo.value.currentTime += 10
+      if (playerVideo.value) {
+        playerVideo.value.currentTime += 10
+      }
     }
 
-    const changeVolume = (value) => {
-      playerVideo.value.volume = value
+    const changeVolume = (value: number) => {
+      if (playerVideo.value) {
+        playerVideo.value.volume = value
+      }
       state.currentVolume = value
     }
 
-    const changeTime = (value) => {
-      playerVideo.value.currentTime = value
+    const changeTime = (value: number) => {
+      if (playerVideo.value) {
+        playerVideo.value.currentTime = value
+      }
       state.currentTime = value
     }
 
     const timeUpdated = () => {
-      state.currentVolume = playerVideo.value.volume
-      state.currentTime = playerVideo.value.currentTime
-      state.duration = playerVideo.value.duration
+      if (playerVideo.value) {
+        state.currentVolume = playerVideo.value?.volume ?? 0
+        state.currentTime = playerVideo.value?.currentTime ?? 0
+        state.duration = playerVideo.value?.duration ?? 0
+      }
       state.progressTime = getProgressTime()
     }
 
     const requestFullScreen = () => {
-      playerVideo.value.requestFullscreen()
+      if (playerVideo.value) {
+        playerVideo.value.requestFullscreen()
+      }
     }
 
     const exitFullScreen = () => {
-      playerVideo.value.exitFullscreen()
+      if (playerVideo.value) {
+        playerVideo.value.exitFullscreen()
+      }
     }
 
     const timeFormated = computed(() => {
-      return convertTime(parseFloat(state.currentTime))
+      return convertTime(state.currentTime)
     })
 
-    const convertTime = (timeSeconds) => {
+    const convertTime = (timeSeconds: number) => {
       var hour = 0
-      var seconds = parseInt(timeSeconds)
+      var seconds = timeSeconds
 
       var hourFormated = hour < 10 ? '0' + hour : hour
       var secondsFormated = seconds < 10 ? '0' + seconds : seconds
@@ -147,8 +188,8 @@ export default defineComponent({
     }
 
     const getProgressTime = () => {
-      const duration = playerVideo.value.duration
-      const currentTime = playerVideo.value.currentTime
+      const duration = playerVideo.value?.duration ?? 0
+      const currentTime = playerVideo.value?.currentTime ?? 0
       return (currentTime / duration) * 100
     }
 
@@ -189,6 +230,6 @@ video::-webkit-media-controls-enclosure {
 }
 
 video::-webkit-media-controls {
-  display:none !important;
+  display: none !important;
 }
 </style>>

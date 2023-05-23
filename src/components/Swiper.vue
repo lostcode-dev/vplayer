@@ -3,7 +3,6 @@
     :modules="modules"
     :slides-per-view="slidesPerView"
     :space-between="30"
-    @swiper="onSwiper"
     @slideChange="onSlideChange"
     :navigation="navigation"
     :freeMode="true"
@@ -15,7 +14,8 @@
   </swiper>
 </template>
 <script lang="ts">
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper'
+// @ts-ignore
+import { Navigation, Autoplay } from 'swiper'
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -44,15 +44,11 @@ export default {
     }
   },
   setup() {
-    const onSwiper = (swiper) => {
-      console.log(swiper)
-    }
     const onSlideChange = () => {
       console.log('slide change')
     }
     return {
-      modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
-      onSwiper,
+      modules: [Navigation, Autoplay],
       onSlideChange
     }
   }

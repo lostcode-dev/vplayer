@@ -18,7 +18,7 @@
         max="1"
         step="0.01"
         :value="volume"
-        @input="$emit('update:changeVolume', $event.target.value)"
+        @input="changeVolume($event)"
       />
       <span @click="$emit('changeMuted')">
         <volume-mute v-if="isMuted" :width="20" :height="20" />
@@ -41,7 +41,7 @@
         :max="duration"
         step="0.01"
         :value="currentTime"
-        @input="$emit('update:changeTime', $event.target.value)"
+        @input="changeTime($event)"
       />
     </div>
 
@@ -93,7 +93,7 @@ export default {
       default: false
     },
     timeFormated: {
-      type: Number,
+      type: String,
       default: 0
     },
     volume: {
@@ -113,7 +113,24 @@ export default {
       default: 0
     }
   },
-  setup() {}
+  setup() {
+    const emit = defineEmits(['update:changeTime', 'update:changeVolume'])
+
+    const changeTime = (event: Event) => {
+      const inputValue = (event.target as HTMLInputElement).value;
+      emit('update:changeTime', inputValue)
+    }
+
+    const changeVolume = (event: Event) => {
+      const inputValue = (event.target as HTMLInputElement).value;
+      emit('update:changeVolume', inputValue)
+    }
+
+    return {
+      changeTime,
+      changeVolume
+    }
+  }
 }
 </script>   
 

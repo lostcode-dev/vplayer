@@ -10,7 +10,7 @@
       <button
         class="rounded-lg text-2xl px-14 py-3 bg-emerald-500 font-semibold text-white hover:bg-emerald-600 mt-6 self-center"
       >
-        Ver Planos
+        Receba informações privilegiadas
       </button>
     </div>
   </section>

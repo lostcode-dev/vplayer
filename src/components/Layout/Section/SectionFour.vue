@@ -35,7 +35,7 @@
       <button
         class="rounded-lg text-2xl px-14 py-2 bg-emerald-500 font-semibold text-white mt-6 self-center"
       >
-        Ver Planos
+        Entrar na lista de espera
       </button>
     </div>
     <iframe class="ml-6 w-full h-96 bg-emerald-50" src="https://www.youtube.com/embed/Q2-0qZoYBA0" title="Barulho de Chuva para Dormir Profundamente e Relaxar - Som de Chuva com Trovões - Rain sounds #61" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

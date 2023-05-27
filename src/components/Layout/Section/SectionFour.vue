@@ -33,7 +33,7 @@
       </p>
 
       <button
-        class="rounded-lg text-2xl px-14 py-2  bg-gradient-to-r from-teal-500 to-emeraldd-500 font-semibold text-white mt-6 self-center"
+        class="rounded-lg text-2xl px-14 py-2  bg-gradient-to-r from-teal-500 to-emerald-500 font-semibold text-white mt-6 self-center"
       >
         Entrar na lista de espera
       </button>

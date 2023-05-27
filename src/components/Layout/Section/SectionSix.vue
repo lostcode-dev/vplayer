@@ -8,7 +8,7 @@
       </h1>
       <p class="text-center font-semibold text-xl mb-6">Vivamus porttitor sem et odio tempor, consectetur adipiscing elit Nullam.</p>
       <button
-        class="rounded-lg text-2xl px-14 py-3 bg-emerald-500 font-semibold text-white hover:bg-emerald-600 mt-6 self-center"
+        class="rounded-lg text-2xl px-14 py-3  bg-gradient-to-r from-teal-500 to-emerald-500 font-semibold text-white hover:bg-emerald-600 mt-6 self-center"
       >
         Receba informações privilegiadas
       </button>

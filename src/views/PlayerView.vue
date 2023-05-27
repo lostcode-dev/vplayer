@@ -232,4 +232,4 @@ video::-webkit-media-controls-enclosure {
 video::-webkit-media-controls {
   display: none !important;
 }
-</style>>
+</style>

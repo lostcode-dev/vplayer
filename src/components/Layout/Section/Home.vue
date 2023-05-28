@@ -1,22 +1,22 @@
 <template>
-    <Section />
-    <SectionTwo />
-    <SectionTree />
-    <SectionFour />
-    <SectionFive />
-    <SectionSix />
+    <VslSection />
+    <LeadingBrands />
+    <CustomerReviews />
+    <ProductOverview />
+    <ProductFeatures />
+    <CallToAction />
 </template>
 
 <script lang="ts">
-import Section from './Section.vue'
-import SectionTwo from './SectionTwo.vue'
-import SectionTree from './SectionTree.vue'
-import SectionFour from './SectionFour.vue'
-import SectionFive from './SectionFive.vue'
-import SectionSix from './SectionSix.vue'
+import VslSection from './VslSection.vue'
+import LeadingBrands from './LeadingBrands.vue'
+import CustomerReviews from './CustomerReviews.vue'
+import ProductOverview from './ProductOverview.vue'
+import ProductFeatures from './ProductFeatures.vue'
+import CallToAction from './CallToAction.vue'
 
 export default {
-  components: { Section, SectionTwo, SectionTree, SectionFour, SectionFive, SectionSix },
+  components: { VslSection, LeadingBrands, CustomerReviews, ProductOverview, ProductFeatures, CallToAction },
   setup() {}
 }
 </script>

@@ -1,10 +1,7 @@
 <template>
   <button
     class="transition-all"
-    :class="`text-${color} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(
-      paddingSize / 2
-    )} font-${fontWeight} ${backgroundColor}
-    text-${fontSize}`"
+    :class="`text-${fontSize} text-${color} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColor}`"
   >
     <slot />
   </button>

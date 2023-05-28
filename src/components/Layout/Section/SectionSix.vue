@@ -8,7 +8,7 @@
       </h1>
       <p class="text-center font-semibold text-xl mb-6">Vivamus porttitor sem et odio tempor, consectetur adipiscing elit Nullam.</p>
       <Button
-        fontSize="2xl"
+        fontSize="xl"
         :paddingSize="8"
         class="mt-6 self-center"
       >

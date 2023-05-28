@@ -33,7 +33,7 @@
       </p>
 
       <Button
-        fontSize="2xl"
+        fontSize="xl"
         :paddingSize="8"
         class="self-center mt-4"
       >

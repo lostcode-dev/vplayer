@@ -7,20 +7,21 @@
         Lorem ipsum dolor sit amet.
       </h1>
       <p class="text-center font-semibold text-xl mb-6">Vivamus porttitor sem et odio tempor, consectetur adipiscing elit Nullam.</p>
-      <button
+      <Button
         class="rounded-lg text-2xl px-14 py-3  bg-gradient-to-r from-teal-500 to-emerald-500 font-semibold text-white hover:bg-emerald-600 mt-6 self-center"
       >
         Receba informações privilegiadas
-      </button>
+      </Button>
     </div>
   </section>
 </template>
 
 <script lang="ts">
 import Swiper from '../../Swiper.vue'
+import Button from '../../Button.vue'
 
 export default {
-  components: { Swiper },
+  components: { Swiper, Button },
   setup() {}
 }
 </script>

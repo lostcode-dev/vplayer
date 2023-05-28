@@ -18,7 +18,7 @@
         <router-link class="rounded-lg px-4 py-2 font-semibold" :to="{ name: 'login'}">
           Login
         </router-link>  
-        <Button class="ml-4"/>
+        <Button class="ml-4">Seja o primeiro a saber</Button>
       </div>
     </nav>
   </header>

@@ -12,12 +12,12 @@
 
       <div class="w-full flex justify-center items-center">
         <div class="max-w-[30%] pr-8">
-          <button
+          <Button
             :class="'active'"
             class="rounded-lg text-left text-xl px-8 py-2 font-semibold hover:text-emerald-600 mt-3 mb-6 w-full"
           >
             <fast-foward-ten class="mr-2" :width="25" :height="25" /> Nibh sagittis
-          </button>
+          </Button>
           <button
             class="rounded-lg text-left text-xl px-8 py-2 font-semibold hover:text-emerald-600 mb-6 w-full"
           >
@@ -65,9 +65,10 @@ import RewindTen from '../../icons/RewindTen.vue'
 import VolumeHigh from '../../icons/VolumeHigh.vue'
 import VolumeMute from '../../icons/VolumeMute.vue'
 import Swiper from '../../Swiper.vue'
+import Button from '../../Button.vue'
 
 export default {
-  components: { Swiper, FastFowardTen, RewindTen, Pause, Play, VolumeMute, VolumeHigh },
+  components: { Swiper, FastFowardTen, RewindTen, Pause, Play, VolumeMute, VolumeHigh, Button },
   setup() {}
 }
 </script>

@@ -33,7 +33,9 @@
       </p>
 
       <Button
-        class="text-2xl px-14 mt-6 self-center"
+        fontSize="2xl"
+        :paddingSize="8"
+        class="self-center mt-4"
       >
         Entrar na lista de espera
       </Button>

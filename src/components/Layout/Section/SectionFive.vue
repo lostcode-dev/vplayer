@@ -14,35 +14,47 @@
         <div class="max-w-[30%] pr-8">
           <Button
             :class="'active'"
-            class="rounded-lg text-left text-xl px-8 py-2 font-semibold hover:text-emerald-600 mt-3 mb-6 w-full"
+            fontSize="xl"
+            textAlign="left"
+            class="px-8 py-2 mt-3 mb-4 w-full"
           >
             <fast-foward-ten class="mr-2" :width="25" :height="25" /> Nibh sagittis
           </Button>
-          <button
-            class="rounded-lg text-left text-xl px-8 py-2 font-semibold hover:text-emerald-600 mb-6 w-full"
+          <Button
+            fontSize="xl"
+            textAlign="left"
+            class="px-8 py-2 mt-3 mb-4 w-full"
           >
             <rewind-ten class="mr-2" :width="25" :height="25" /> Suspendisse tortor
-          </button>
-          <button
-            class="rounded-lg text-left text-xl px-8 py-2 font-semibold hover:text-emerald-600 mb-6 w-full"
+          </Button>
+          <Button
+            fontSize="xl"
+            textAlign="left"
+            class="px-8 py-2 mt-3 mb-4 w-full"
           >
             <pause class="mr-2" :width="25" :height="25" /> Sed enim tempus
-          </button>
-          <button
-            class="rounded-lg text-left text-xl px-8 py-2 font-semibold hover:text-emerald-600 mb-6 w-full"
+          </Button>
+          <Button
+            fontSize="xl"
+            textAlign="left"
+            class="px-8 py-2 mt-3 mb-4 w-full"
           >
             <play class="mr-2" :width="25" :height="25" /> Aliquam volutpat
-          </button>
-          <button
-            class="rounded-lg text-left text-xl px-8 py-2 font-semibold hover:text-emerald-600 mb-6 w-full"
+          </Button>
+          <Button
+            fontSize="xl"
+            textAlign="left"
+            class="px-8 py-2 mt-3 mb-4 w-full"            
           >
             <volume-mute class="mr-2" :width="25" :height="25" /> Etiam metus
-          </button>
-          <button
-            class="rounded-lg text-left text-xl px-8 py-2 font-semibold hover:text-emerald-600 mb-3 w-full"
+          </Button>
+          <Button
+            fontSize="xl"
+            textAlign="left"
+            class="px-8 py-2 mt-3 mb-4 w-full"
           >
             <volume-high class="mr-2" :width="25" :height="25" /> Volutpat metus
-          </button>
+          </Button>
         </div>
         <iframe
           class="ml-6 w-full h-96 bg-white"

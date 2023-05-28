@@ -1,8 +1,8 @@
 <script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import Layout from './components/Layout/Layout.vue'
+
 export default {
-  components: { RouterLink, RouterView, Layout },
+  components: { RouterLink, RouterView },
   setup() {}    
 }
 </script>

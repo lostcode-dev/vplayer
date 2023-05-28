@@ -18,17 +18,15 @@
         <router-link class="rounded-lg px-4 py-2 font-semibold" :to="{ name: 'login'}">
           Login
         </router-link>  
-        <Button class="ml-4">Seja o primeiro a saber</Button>
+        <a-button class="ml-4">Seja o primeiro a saber</a-button>
       </div>
     </nav>
   </header>
 </template>
 
 <script lang="ts">
-import Button from '../Button.vue'
 
 export default {
-  components: {Button },
   setup() {}
 }
 </script>

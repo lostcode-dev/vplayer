@@ -4,7 +4,7 @@
         <h1 class="text-center mb-3 font-bold text-3xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit Nullam.</h1>
         <p class="text-center font-semibold text-xl mb-10">Vivamus porttitor sem et odio tempor.</p>
 
-        <Swiper
+        <c-swiper
           :slidesPerView="3">
           <div class="bg-white p-4 rounded-xl drop-shadow-lg m-2">
             <h5 class="text-center font-bold mb-4 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
@@ -17,16 +17,14 @@
               </div>
             </div>
           </div>
-        </Swiper>
+        </c-swiper>
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import Swiper from "../../Swiper.vue";
 
 export default {
-  components: { Swiper },
   setup() {}
 }
 </script>

@@ -32,24 +32,21 @@
         quam quis augue. Nunc eget cursus velit.
       </p>
 
-      <Button
+      <a-button
         fontSize="xl"
         :paddingSize="8"
         class="self-center mt-4"
       >
         Entrar na lista de espera
-      </Button>
+      </a-button>
     </div>
     <iframe class="ml-6 w-full h-96 bgemeraldld-50" src="https://www.youtube.com/embed/Q2-0qZoYBA0" title="Barulho de Chuva para Dormir Profundamente e Relaxar - Som de Chuva com Trovões - Rain sounds #61" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </section>
 </template>
 
 <script lang="ts">
-import Swiper from '../../Swiper.vue'
-import Button from '../../Button.vue'
 
 export default {
-  components: { Swiper, Button },
   setup() {}
 }
 </script>

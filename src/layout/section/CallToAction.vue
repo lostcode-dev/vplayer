@@ -7,23 +7,20 @@
         Lorem ipsum dolor sit amet.
       </h1>
       <p class="text-center font-semibold text-xl mb-6">Vivamus porttitor sem et odio tempor, consectetur adipiscing elit Nullam.</p>
-      <Button
+      <a-button
         fontSize="xl"
         :paddingSize="8"
         class="mt-6 self-center"
       >
         Receba informações privilegiadas
-      </Button>
+      </a-button>
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import Swiper from '../../Swiper.vue'
-import Button from '../../Button.vue'
 
 export default {
-  components: { Swiper, Button },
   setup() {}
 }
 </script>

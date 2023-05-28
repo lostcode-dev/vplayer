@@ -12,49 +12,49 @@
 
       <div class="w-full flex justify-center items-center">
         <div class="max-w-[30%] pr-8">
-          <Button
+          <a-button
             :class="'active'"
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
           >
-            <fast-foward-ten class="mr-2" :width="25" :height="25" /> Nibh sagittis
-          </Button>
-          <Button
+            <i-fast-foward-ten class="mr-2" :width="25" :height="25" /> Nibh sagittis
+          </a-button>
+          <a-button
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
           >
-            <rewind-ten class="mr-2" :width="25" :height="25" /> Suspendisse tortor
-          </Button>
-          <Button
+            <i-rewind-ten class="mr-2" :width="25" :height="25" /> Suspendisse tortor
+          </a-button>
+          <a-button
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
           >
-            <pause class="mr-2" :width="25" :height="25" /> Sed enim tempus
-          </Button>
-          <Button
+            <i-pause class="mr-2" :width="25" :height="25" /> Sed enim tempus
+          </a-button>
+          <a-button
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
           >
-            <play class="mr-2" :width="25" :height="25" /> Aliquam volutpat
-          </Button>
-          <Button
+            <i-play class="mr-2" :width="25" :height="25" /> Aliquam volutpat
+          </a-button>
+          <a-button
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"            
           >
-            <volume-mute class="mr-2" :width="25" :height="25" /> Etiam metus
-          </Button>
-          <Button
+            <i-volume-mute class="mr-2" :width="25" :height="25" /> Etiam metus
+          </a-button>
+          <a-button
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
           >
-            <volume-high class="mr-2" :width="25" :height="25" /> Volutpat metus
-          </Button>
+            <i-volume-high class="mr-2" :width="25" :height="25" /> Volutpat metus
+          </a-button>
         </div>
         <iframe
           class="ml-6 w-full h-96 bg-white"
@@ -70,17 +70,8 @@
 </template>
 
 <script lang="ts">
-import FastFowardTen from '../../icons/FastFowardTen.vue'
-import Pause from '../../icons/Pause.vue'
-import Play from '../../icons/Play.vue'
-import RewindTen from '../../icons/RewindTen.vue'
-import VolumeHigh from '../../icons/VolumeHigh.vue'
-import VolumeMute from '../../icons/VolumeMute.vue'
-import Swiper from '../../Swiper.vue'
-import Button from '../../Button.vue'
 
 export default {
-  components: { Swiper, FastFowardTen, RewindTen, Pause, Play, VolumeMute, VolumeHigh, Button },
   setup() {}
 }
 </script>

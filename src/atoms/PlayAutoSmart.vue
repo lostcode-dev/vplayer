@@ -5,16 +5,14 @@
       class="px-4 py-2 border-solid border-2 border-emerald-200 bg-slate-200 rounded-lg"
     >
       <p>Seu vídeo já começou</p>
-      <volume-variant-off />
+      <i-volume-variant-off />
       <p>Clique para ouvir</p>
     </button>
   </div>
 </template>
 
 <script lang="ts">
-import VolumeVariantOff from './icons/VolumeVariantOff.vue'
 export default {
-  components: { VolumeVariantOff },
   setup() {}    
 }
 </script>

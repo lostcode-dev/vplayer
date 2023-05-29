@@ -1,7 +1,8 @@
 <template>
   <button
-    class="transition-all"
-    :class="`text-${fontSize} text-${color} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColor}`"
+    class="transition-all backgroundColorClass"
+    :class="`text-${fontSize} text-${color} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColor} `"
+    @click="toggleActive"
   >
     <slot />
   </button>
@@ -37,6 +38,27 @@ export default {
     color: {
       type: String,
       default: 'white'
+    },
+    activeButton: {
+      type: Boolean,      
+      default: false
+    }
+  },
+  data() {
+    return {
+      isActive: this.activeButton
+    };
+  },
+  methods: {
+    toggleActive() {
+      this.isActive = !this.isActive;
+    },
+    backgroundColorClass() {
+      if (this.activeButton) {
+        return 'bg-blue-500 text-white';
+      } else {
+        return ""; // empty string for default  properties
+      }
     }
   },
   components: {},

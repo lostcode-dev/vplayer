@@ -13,7 +13,8 @@
       <div class="w-full flex justify-center items-center">
         <div class="max-w-[30%] pr-8">
           <a-button
-            :class="'active'"
+            :class="{'active': active}"
+            @click="toggleActive"
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
@@ -72,6 +73,16 @@
 <script lang="ts">
 
 export default {
+  data() {
+    return {
+      active: false
+    };
+  },
+  methods: {
+    toggleActive() {
+      this.active = !this.active;
+    } 
+  },
   setup() {}
 }
 </script>

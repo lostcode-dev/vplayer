@@ -12,9 +12,8 @@
 
       <div class="w-full flex justify-center items-center">
         <div class="max-w-[30%] pr-8">
-          <a-button
-            :class="{'active': active}"
-            @click="toggleActive"
+          <a-button            
+            @click="handlerClick"
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
@@ -72,18 +71,15 @@
 
 <script lang="ts">
 
-export default {
-  data() {
+export default {    
+  setup() {
+    const handlerClick = () => {
+
+    }
     return {
-      active: false
-    };
-  },
-  methods: {
-    toggleActive() {
-      this.active = !this.active;
-    } 
-  },
-  setup() {}
+      handlerClick
+    }
+  }
 }
 </script>
 
@@ -92,7 +88,7 @@ export default {
   background-color: #10b981;
   color: white;
 
-  transition: backforung-color 1000ms linear;
+  transition: background-color 1000ms linear;
 }
 
 .active:hover {

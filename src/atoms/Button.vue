@@ -1,14 +1,15 @@
 <template>
   <button
-    class="transition-all backgroundColorClass"
-    :class="`text-${fontSize} text-${color} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColor} `"
-    @click="toggleActive"
+    class="transition-all"
+    :class="`text-${fontSize} text-${color} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColorClass} `"
+    
   >
-    <slot />
+    <slot></slot>
   </button>
 </template>
 
 <script lang="ts">
+import { computed, defineEmits } from 'vue';
 export default {
   props: {
     radius: {
@@ -41,27 +42,32 @@ export default {
     },
     activeButton: {
       type: Boolean,      
-      default: false
-    }
-  },
-  data() {
-    return {
-      isActive: this.activeButton
-    };
-  },
-  methods: {
-    toggleActive() {
-      this.isActive = !this.isActive;
-    },
-    backgroundColorClass() {
-      if (this.activeButton) {
-        return 'bg-blue-500 text-white';
-      } else {
-        return ""; // empty string for default  properties
-      }
+      default: undefined,
     }
   },
   components: {},
-  setup() {}
+  setup(props) {
+    const emit = defineEmits(['click'])
+
+    const handlerClick = () => {
+      emit('click')
+    }
+
+    const backgroundColorClass = computed(() => {
+      if (props.activeButton === undefined) {
+        return props.backgroundColor
+      }
+      if (props.activeButton) {
+        return 'bg-blue-500 text-white';
+      } else {
+        return "";
+      }
+    })
+
+    return {
+      handlerClick,
+      backgroundColorClass
+    }
+  }
 }
 </script>

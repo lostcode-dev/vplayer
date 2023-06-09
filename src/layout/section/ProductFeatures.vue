@@ -12,15 +12,18 @@
 
       <div class="w-full flex justify-center items-center">
         <div class="max-w-[30%] pr-8">
-          <a-button            
-            @click="handlerClick"
+          <a-button
+            :activeButton="isActive(1)"
+            @click="toggleButton(1)"
             fontSize="xl"
-            textAlign="left"
+            textAlign="left"            
             class="px-8 py-2 mt-3 mb-4 w-full"
           >
             <i-fast-foward-ten class="mr-2" :width="25" :height="25" /> Nibh sagittis
           </a-button>
           <a-button
+            :activeButton="isActive(2)"
+            @click="toggleButton(2)"
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
@@ -28,6 +31,8 @@
             <i-rewind-ten class="mr-2" :width="25" :height="25" /> Suspendisse tortor
           </a-button>
           <a-button
+            :activeButton="isActive(3)"
+            @click="toggleButton(3)"
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
@@ -35,6 +40,8 @@
             <i-pause class="mr-2" :width="25" :height="25" /> Sed enim tempus
           </a-button>
           <a-button
+            :activeButton="isActive(4)"
+            @click="toggleButton(4)"
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
@@ -42,6 +49,8 @@
             <i-play class="mr-2" :width="25" :height="25" /> Aliquam volutpat
           </a-button>
           <a-button
+            :activeButton="isActive(5)"
+            @click="toggleButton(5)"
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"            
@@ -49,6 +58,8 @@
             <i-volume-mute class="mr-2" :width="25" :height="25" /> Etiam metus
           </a-button>
           <a-button
+            :activeButton="isActive(6)"
+            @click="toggleButton(6)"
             fontSize="xl"
             textAlign="left"
             class="px-8 py-2 mt-3 mb-4 w-full"
@@ -71,16 +82,29 @@
 
 <script lang="ts">
 
+import { ref } from 'vue';
 export default {    
   setup() {
-    const handlerClick = () => {
+    let activeButton = ref(1);
+        
+    
+    const toggleButton = (button : number) => {
+      activeButton.value = button;
+           
+      
+    };
 
+    const isActive = (buttonNumber : number) => {
+      return activeButton.value === buttonNumber;
+      
     }
-    return {
-      handlerClick
-    }
+
+    return {           
+      toggleButton,
+      isActive
+    };
   }
-}
+};
 </script>
 
 <style scoped>

@@ -2,6 +2,7 @@
   <button
     class="transition-all"
     :class="`text-${fontSize} text-${color} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColorClass} `"
+    @click="toggleButton"
     
   >
     <slot></slot>
@@ -9,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineEmits } from 'vue';
+import { computed, defineEmits, ref } from 'vue';
 export default {
   props: {
     radius: {
@@ -46,26 +47,24 @@ export default {
     }
   },
   components: {},
-  setup(props) {
-    const emit = defineEmits(['click'])
-
-    const handlerClick = () => {
-      emit('click')
-    }
+  emits: ["click"],
+  setup(props, {emit}) {
+    
+    const toggleButton = () => {      
+      emit('click', !props.activeButton);
+    };
 
     const backgroundColorClass = computed(() => {
       if (props.activeButton === undefined) {
-        return props.backgroundColor
-      }
-      if (props.activeButton) {
-        return 'bg-blue-500 text-white';
+        return props.backgroundColor;
+      } else if (props.activeButton) {
+        return props.backgroundColor;
       } else {
-        return "";
+        return 'text-current';
       }
-    })
-
-    return {
-      handlerClick,
+    });
+    return {      
+      toggleButton,
       backgroundColorClass
     }
   }

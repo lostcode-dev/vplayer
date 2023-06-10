@@ -60,7 +60,7 @@ export default {
       } else if (props.activeButton) {
         return props.backgroundColor;
       } else {
-        return 'text-current';
+        return 'text-inherit';
       }
     });
     return {      

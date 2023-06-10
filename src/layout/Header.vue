@@ -8,9 +8,13 @@
           <img class="h-10 inline " src="../assets/logo.png" alt="Logo da empresa" id="logo" href="#">
           Raydan
         </span>
+
+        <span>
+          
+        </span>
       </div>      
       <div>
-        <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-emerald-50 w-full left-0 md:w-auto md:py-0 py-3 md:pl-0 pl-3 md:opacity-100">
+        <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-emerald-50 w-full left-0 md:w-auto md:py-0 py-3 md:pl-0 pl-3 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
           <li class="mx-8 my-6 md:my-0">
             <a class="text-lg font-semibold hover:text-teal-500 duration-500" href="">
               Ajuda
@@ -34,7 +38,11 @@
 
 <script lang="ts">
 
+
 export default {
+  
   setup() {}
 }
+  
+
 </script>

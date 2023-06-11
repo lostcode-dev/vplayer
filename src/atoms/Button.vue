@@ -60,7 +60,7 @@ export default {
       } else if (props.activeButton) {
         return props.backgroundColor;
       } else {
-        return 'text-inherit';
+        return 'text-black';
       }
     });
     return {      

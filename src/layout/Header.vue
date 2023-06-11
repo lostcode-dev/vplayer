@@ -13,7 +13,7 @@
           @click="toggleMenu"
           class=" text-3xl cursor-pointer mx-2 md:hidden block" 
           >
-          <i-play v-if="!isMenuVisible" :width="20" :height="20" />
+          <i-navbar-menu v-if="!isMenuVisible" :width="20" :height="20" />
           <i-pause v-else :width="20" :height="20" />
         </span>
       </div>      

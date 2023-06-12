@@ -1,11 +1,11 @@
 <template>
   <div id="player" class="relative">
-    <thumbnails type="input" :currentTime="currentTime" />
-    <thumbnails type="output" :isPaused="resumePlay" />
-    <thumbnails type="ended" :currentTime="currentTime" :duration="duration" />
+    <a-thumbnails type="input" :currentTime="currentTime" />
+    <a-thumbnails type="output" :isPaused="resumePlay" />
+    <a-thumbnails type="ended" :currentTime="currentTime" :duration="duration" />
 
-    <play-auto-smart v-if="autoSmart" @play-auto-smart="playAutoSmart()" />
-    <resume-play v-if="resumePlay" @play-resume="playResume()" @reload-resume="reloadResume()" />
+    <a-play-auto-smart v-if="autoSmart" @play-auto-smart="playAutoSmart()" />
+    <a-resume-play v-if="resumePlay" @play-resume="playResume()" @reload-resume="reloadResume()" />
     <video
       ref="playerVideo"
       :width="width"
@@ -19,7 +19,7 @@
       <source src="../assets/mov_bbb.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-    <controls
+    <c-controls
       v-if="controls"
       @play="playResume()"
       @pause="pause()"
@@ -43,10 +43,6 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref, toRefs, computed } from 'vue'
-import Controls from '../components/Controls.vue'
-import PlayAutoSmart from '../components/PlayAutoSmart.vue'
-import ResumePlay from '../components/ResumePlay.vue'
-import Thumbnails from '../components/Thumbnails.vue'
 
 interface PlayerVideo {
   muted: boolean
@@ -66,7 +62,6 @@ interface PlayerVideoRef {
  
 
 export default defineComponent({
-  components: { PlayAutoSmart, ResumePlay, Controls, Thumbnails },
   setup() {
     const playerVideo: PlayerVideoRef = ref(null)
     const state = reactive({

@@ -3,6 +3,7 @@ import PlayAutoSmart from './PlayAutoSmart.vue'
 import ProgressBar from './ProgressBar.vue'
 import ResumePlay from './ResumePlay.vue'
 import Thumbnails from './Thumbnails.vue'
+import Logo from './Logo.vue'
 
 
 export default function install(app) {
@@ -11,4 +12,5 @@ export default function install(app) {
   app.component('a-progress-bar', ProgressBar)
   app.component('a-resume-play', ResumePlay)
   app.component('a-thumbnails', Thumbnails)
+  app.component('a-logo', Logo)
 }

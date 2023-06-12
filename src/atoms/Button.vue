@@ -1,7 +1,7 @@
 <template>
   <button
     class="transition-all"
-    :class="`text-${fontSize} text-${color} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColorClass} `"
+    :class="`text-${fontSize} text-${currentColor} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColorClass} `"
     @click="toggleButton"
     
   >
@@ -54,18 +54,24 @@ export default {
       emit('click', !props.activeButton);
     };
 
+    const currentColor = computed( () => {
+      if (props.activeButton === undefined || props.activeButton ) {
+        return props.color
+      } else {
+        return 'black'
+      }
+    })
     const backgroundColorClass = computed(() => {
       if (props.activeButton === undefined) {
         return props.backgroundColor;
       } else if (props.activeButton) {
         return props.backgroundColor;
-      } else {
-        return 'text-black';
-      }
+      } 
     });
     return {      
       toggleButton,
-      backgroundColorClass
+      backgroundColorClass,
+      currentColor,
     }
   }
 }

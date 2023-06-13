@@ -2,9 +2,9 @@
   <header class="w-full bg-emerald-50 fixed z-20">
     <nav class="p-4 md:flex md:justify-between md:items-center font-semibold">
       <div class="flex justify-between items-center">
-        <span class="text-2xl font-[Poppins] cursor-pointer">
-          <a-logo />
-        </span>
+        <a  class="ml-6" href="">
+          <a-logo animated />
+        </a>
 
         <span @click="toggleMenu" class="text-3xl cursor-pointer mx-2 md:hidden block">
           <i-navbar-menu v-if="!isMenuVisible" :width="20" :height="20" />

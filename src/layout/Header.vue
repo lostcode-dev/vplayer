@@ -25,9 +25,9 @@
         @mouseleave="hideMenu"
         >
           <li class="mx-8 my-6 md:my-0">
-            <a class="text-lg font-semibold hover:text-teal-500 duration-500" href="">
+            <router-link class="text-lg font-semibold hover:text-teal-500 duration-500" :to="{ name: 'help'}">
               Ajuda
-            </a>            
+            </router-link>            
           </li>
           <li class="mx-8 my-6 md:my-0">
             <router-link class="text-lg font-semibold hover:text-teal-500 duration-500" :to="{ name: 'login'}">
@@ -43,10 +43,12 @@
       </div>
     </nav>
   </header>
+  <RouterView />
 </template>
 
 <script lang="ts">
 import { ref, onMounted, onBeforeUnmount  } from 'vue';
+
 
 export default {
    

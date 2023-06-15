@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full bg-white flex justify-center">
     <div class="w-4/12 px-24 mt-[-50px] flex justify-center flex-col">
-        <h3 class="font-bold text-xl text-center">Alguma Logo</h3>
+        <a-logo class="text-center"/>
 
         <div style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" class="w-full my-6 px-8 py-4 shadow-emerald-500 rounded-lg border-2 max-w-xl	mx-[auto]">
           <p class="text-xl mb-4 font-semibold">Login</p>

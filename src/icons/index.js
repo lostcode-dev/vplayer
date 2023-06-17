@@ -13,6 +13,8 @@ import VolumeMute from './VolumeMute.vue'
 import VolumeOff from './VolumeOff.vue'
 import VolumeVariantOff from './VolumeVariantOff.vue'
 import NavbarMenu from './NavbarMenu.vue'
+import NavbarCloseMenu from './NavbarCloseMenu.vue'
+
 
 export default function install(app) {
   app.component('i-icon', Icon)
@@ -30,4 +32,6 @@ export default function install(app) {
   app.component('i-volume-off', VolumeOff)
   app.component('i-volume-variant-off', VolumeVariantOff)
   app.component('i-navbar-menu', NavbarMenu)
+  app.component('i-navbar-close-menu', NavbarCloseMenu)
+
 }

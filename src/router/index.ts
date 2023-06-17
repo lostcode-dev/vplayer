@@ -1,3 +1,4 @@
+import { componentProps } from '@/__VLS_types'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -12,7 +13,12 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: () => import('../pages/sigin/Sigin.vue')
-    }
+    },
+    {
+      path: '/help',
+      name: 'help',
+      component: () => import('../pages/sigin/Help.vue')
+    },
   ]
 })
 

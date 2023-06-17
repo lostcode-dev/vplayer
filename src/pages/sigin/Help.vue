@@ -1,0 +1,14 @@
+<template>
+  <div class="w-full h-full bg-white flex justify-center">
+     <p class="text-xl mb-4 font-semibold p-auto">HELP</p>
+    
+  </div>
+</template>
+
+<script lang="ts">
+
+export default {
+  components: { },
+  setup() {}
+}
+</script>

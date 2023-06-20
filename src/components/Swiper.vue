@@ -1,7 +1,6 @@
 <template>
   <swiper
-    :modules="modules"
-    :slides-per-view="slidesPerView"
+    :modules="modules"    
     :space-between="30"
     @slideChange="onSlideChange"
     :navigation="navigation"
@@ -45,24 +44,23 @@ export default {
       default: false
     }
   },
-  setup() {
+  setup(props) {
 
     const getBreakPoints = computed( () => ({      
     // Responsive breakpoints
     
       // when window width is >= 320px
       320: {
-        slidesPerView: 2,
+        slidesPerView: props.slidesPerView - 2,
         spaceBetween: 20
-      },
-      // when window width is >= 480px
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 30
-      },
+      },      
       // when window width is >= 640px
       640: {
-        slidesPerView: 5,
+        slidesPerView: props.slidesPerView - 1,  
+        spaceBetween: 40
+      },
+      768: {
+        slidesPerView: props.slidesPerView,  
         spaceBetween: 40
       }
     }));

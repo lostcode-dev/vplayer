@@ -1,12 +1,12 @@
 <template>
   <swiper
-    :modules="modules"
-    :slides-per-view="slidesPerView"
+    :modules="modules"    
     :space-between="30"
     @slideChange="onSlideChange"
     :navigation="navigation"
     :freeMode="true"
     autoplay
+    :breakpoints="getBreakPoints"
   >
     <swiper-slide v-for="(item, index) in (slidesPerView * 2)" :key="index">
       <slot />
@@ -26,6 +26,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/autoplay'
+import { computed } from 'vue'
 
 
 export default {
@@ -43,13 +44,34 @@ export default {
       default: false
     }
   },
-  setup() {
+  setup(props) {
+
+    const getBreakPoints = computed( () => ({      
+    // Responsive breakpoints
+    
+      // when window width is >= 320px
+      320: {
+        slidesPerView: props.slidesPerView - 2,
+        spaceBetween: 20
+      },      
+      // when window width is >= 640px
+      640: {
+        slidesPerView: props.slidesPerView - 1,  
+        spaceBetween: 40
+      },
+      768: {
+        slidesPerView: props.slidesPerView,  
+        spaceBetween: 40
+      }
+    }));
+
     const onSlideChange = () => {
       console.log('slide change')
     }
     return {
       modules: [Navigation, Autoplay],
-      onSlideChange
+      onSlideChange,
+      getBreakPoints,
     }
   }
 }

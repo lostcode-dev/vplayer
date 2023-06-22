@@ -1,6 +1,6 @@
 <template>
   <section
-    style="height: calc(100vh - 3.5rem)"
+    
     class="max-w-5xl mx-[auto] pt-3 flex items-center"
   >
     <div class="max-w-[50%] pr-8 flex flex-col self-center">

@@ -5,11 +5,11 @@
     @slideChange="onSlideChange"
     :navigation="navigation"
     :freeMode="true"
-    autoplay
+    :autoplay="{ delay: 3000 }"
     :breakpoints="getBreakPoints"
   >
-    <swiper-slide v-for="(item, index) in (slidesPerView * 2)" :key="index">
-      <slot />
+    <swiper-slide v-for="(item, index) in items" :key="index">
+      <slot :item="item"/>
     </swiper-slide>
   </swiper>
 </template>
@@ -26,15 +26,20 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/autoplay'
-import { computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 
 
-export default {
+
+export default defineComponent({
   components: {
     Swiper,
     SwiperSlide
   },
   props: {
+    items: {
+      type: Array,
+      default: () => []
+    },
     slidesPerView: {
       type: Number,
       default: 5
@@ -42,6 +47,10 @@ export default {
     navigation: {
       type: Boolean,
       default: false
+    },
+    leadingBrandsData: {
+      type: Array,
+      default: () => []
     }
   },
   setup(props) {
@@ -68,11 +77,16 @@ export default {
     const onSlideChange = () => {
       console.log('slide change')
     }
+
+    
+
     return {
       modules: [Navigation, Autoplay],
       onSlideChange,
       getBreakPoints,
+      
+
     }
   }
-}
+})
 </script>

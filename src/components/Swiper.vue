@@ -5,17 +5,18 @@
     @slideChange="onSlideChange"
     :navigation="navigation"
     :freeMode="true"
-    :autoplay="{ delay: 3000 }"
+    :autoplay="{ delay: 1500 }"
     :breakpoints="getBreakPoints"
+    loop
   >
     <swiper-slide v-for="(item, index) in items" :key="index">
-      <slot :item="item"/>
+      <slot name="default" :item="item"/>
     </swiper-slide>
   </swiper>
 </template>
 <script lang="ts">
 // @ts-ignore
-import { Navigation, Autoplay } from 'swiper'
+import { Navigation, Autoplay, Loop } from 'swiper'
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -48,6 +49,7 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    
     leadingBrandsData: {
       type: Array,
       default: () => []

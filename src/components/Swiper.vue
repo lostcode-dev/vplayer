@@ -1,11 +1,11 @@
 <template>
   <swiper
-    :modules="modules"
-    :space-between="30"
+    :modules="modules"    
     @slideChange="onSlideChange"
     :navigation="navigation"
     :autoplay="autoplayOptions"
     :breakpoints="getBreakPoints"
+    :space-between="30"
   >
       <slot />
   </swiper>
@@ -29,11 +29,7 @@ export default defineComponent({
   components: {
     Swiper
   },
-  props: {
-    items: {
-      type: Array,
-      default: () => []
-    },
+  props: {    
     slidesPerView: {
       type: Number,
       default: 5
@@ -49,20 +45,20 @@ export default defineComponent({
 
       320: {
         slidesPerView: props.slidesPerView - 3,
-        spaceBetween: 10
+        
       },
       480: {
         slidesPerView: props.slidesPerView - 2,
-        spaceBetween: 20
+        
       },
 
       768: {
         slidesPerView: props.slidesPerView - 1,
-        spaceBetween: 30
+        
       },
       1200: {
         slidesPerView: props.slidesPerView,
-        spaceBetween: 40
+        
       }
     }))
 

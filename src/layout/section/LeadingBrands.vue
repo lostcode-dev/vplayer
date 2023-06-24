@@ -4,11 +4,11 @@
       Vivamus porttitor sem et odio tempor.
     </h1>
     <c-swiper>
-      <template v-for="(item, index) in leadingBrandsData" :key="index">
-        <swiper-slide>
-          <img :src="item.href" :alt="item.name" class="bg-emerald-50" width="170" height="130" />
-        </swiper-slide>
-      </template>
+      
+      <swiper-slide v-for="(item, index) in leadingBrandsData" :key="index">
+        <img :src="item.href" :alt="item.name" class="bg-emerald-50 w-32 h-32 m-auto object-cover rounded-xl" />
+      </swiper-slide>
+      
     </c-swiper>
   </section>
 </template>
@@ -24,27 +24,27 @@ export default defineComponent({
   setup() {
     const leadingBrandsData = ref([
       {
-        href: ' https://www.petz.com.br/blog/wp-content/uploads/2021/11/enxoval-para-gato-Copia.jpg ',
+        href: ' https://play-lh.googleusercontent.com/ahJtMe0vfOlAu1XJVQ6rcaGrQBgtrEZQefHy7SXB7jpijKhu1Kkox90XDuH8RmcBOXNn ',
         name: ' img1 '
       },
       {
-        href: ' https://caesegatos.com.br/wp-content/uploads/2023/01/the-gold-bengal-cat-on-white-background-1024x683.jpg ',
+        href: ' https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/1024px-LEGO_logo.svg.png ',
         name: ' img2 '
       },
       {
-        href: ' https://www.petz.com.br/blog/wp-content/uploads/2022/02/gato-e-carnivoro2.jpg ',
+        href: ' https://png.pngtree.com/element_origin_min_pic/16/11/02/bd886d7ccc6f8dd8db17e841233c9656.jpg ',
         name: ' img3 '
       },
       {
-        href: ' https://conteudo.imguol.com.br/c/entretenimento/28/2022/10/28/gato-preto-1666974144631_v2_4x3.jpg ',
+        href: ' https://assets.turbologo.com/blog/pt/2019/11/19133547/gaming-logo-cover.jpg ',
         name: ' img4 '
       },
       {
-        href: ' https://portalvet.royalcanin.com.br/wp-content/uploads/2022/07/british-short-hair-cortado-1110x450.jpeg ',
+        href: ' https://en.ephoto360.com/uploads/effect-data/en.ephoto360.com/0topvzyla/9-min62442e7dbefd2.jpg',
         name: ' img5 '
       },
       {
-        href: ' https://seres.vet/blog/wp-content/uploads/2022/06/gato-irritado-1.jpg ',
+        href: ' https://play-lh.googleusercontent.com/Fro4e_osoDhhrjgiZ_Y2C5FNXBMWvrb4rGpmkM1PDAcUPXeiAlPCq7NeaT4Q6NRUxRqo ',
         name: ' img6 '
       }
     ])

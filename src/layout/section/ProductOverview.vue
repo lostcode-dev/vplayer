@@ -1,7 +1,7 @@
 <template>
   <section
     
-    class="max-w-5xl mx-[auto] pt-3 flex items-center"
+    class="max-w-5xl mx-[auto] pt-3 flex items-center my-8 sm:my-10 md:my-14 px-4"
   >
     <div class="max-w-[50%] pr-8 flex flex-col self-center">
       <h1 class="text-left mb-3 font-bold text-4xl">

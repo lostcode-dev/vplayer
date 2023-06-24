@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-emerald-50 pt-8 pb-20 my-20 sm:my-28 md:my-36 mx-[auto] px-4">
+  <section class="w-full bg-emerald-50 pt-8 pb-20 mt-20 sm:mt-28 md:mt-36 mx-[auto] px-4">
     <div  class="max-w-5xl mx-[auto] pt-3" >
         <h1 class="text-center mb-3 font-bold text-3xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit Nullam.</h1>
         <p class="text-center font-semibold text-xl mb-10">Vivamus porttitor sem et odio tempor</p>

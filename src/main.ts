@@ -1,6 +1,7 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
+import { createI18n } from 'vue-i18n'
 import { createPinia } from 'pinia'
 import { makeServer } from "./server.js"
 
@@ -11,6 +12,13 @@ import Layout from './layout/index.js'
 
 import App from './App.vue'
 import router from './router'
+import messages from './i18n'
+
+const i18n = createI18n({
+    locale: 'en', // set locale
+    fallbackLocale: 'en', // set fallback locale
+    messages, // set locale messages
+})
 
 const app = createApp(App)
 
@@ -23,6 +31,7 @@ app.use(Atoms)
 app.use(Components)
 app.use(Icons)
 app.use(Layout)
+app.use(i18n)
 
 app.mount('#app')
 

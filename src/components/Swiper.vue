@@ -7,9 +7,7 @@
     :autoplay="autoplayOptions"
     :breakpoints="getBreakPoints"
   >
-    <swiper-slide v-for="(item, index) in items" :key="item.name">
-      <slot :name="`slide_${index}`" :item="item" />
-    </swiper-slide>
+      <slot />
   </swiper>
 </template>
 <script lang="ts">
@@ -17,7 +15,7 @@
 import { Navigation, Autoplay } from 'swiper'
 
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Swiper } from 'swiper/vue'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -29,8 +27,7 @@ import { defineComponent, computed } from 'vue'
 
 export default defineComponent({
   components: {
-    Swiper,
-    SwiperSlide
+    Swiper
   },
   props: {
     items: {

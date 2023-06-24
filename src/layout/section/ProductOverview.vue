@@ -1,7 +1,7 @@
 <template>
   <section
     
-    class="max-w-5xl mx-[auto] pt-3 items-center my-8 sm:my-10 md:my-14 px-4"
+    class="max-w-5xl mx-[auto] pt-3 items-center my-8 sm:my-10 md:my-14 px-4 py-8"
   >
   <h1 class="text-center mb-3 lg:mb-12 font-bold text-4xl">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit Nullam.

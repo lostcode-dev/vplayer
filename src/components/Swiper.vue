@@ -3,23 +3,22 @@
     :modules="modules"    
     :space-between="30"
     @slideChange="onSlideChange"
-    :navigation="navigation"
-    :freeMode="true"
-    :autoplay="{ delay: 1500 }"
+    :navigation="navigation"    
+    :autoplay="autoplayOptions"
     :breakpoints="getBreakPoints"
-    loop
+    
   >
-    <swiper-slide v-for="(item, index) in items" :key="index">
-      <slot name="default" :item="item"/>
-    </swiper-slide>
+    
+    <slot name="default" :items="items"/>
+    
   </swiper>
 </template>
 <script lang="ts">
 // @ts-ignore
-import { Navigation, Autoplay, Loop } from 'swiper'
+import { Navigation, Autoplay } from 'swiper'
 
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Swiper } from 'swiper/vue'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -34,7 +33,7 @@ import { defineComponent, computed } from 'vue'
 export default defineComponent({
   components: {
     Swiper,
-    SwiperSlide
+    
   },
   props: {
     items: {
@@ -60,17 +59,21 @@ export default defineComponent({
     const getBreakPoints = computed( () => ({      
     // Responsive breakpoints
     
-      // when window width is >= 320px
+     
       320: {
+        slidesPerView: props.slidesPerView - 3,
+        spaceBetween: 10
+      },      
+      480: {
         slidesPerView: props.slidesPerView - 2,
         spaceBetween: 20
       },      
-      // when window width is >= 640px
-      640: {
-        slidesPerView: props.slidesPerView - 1,  
-        spaceBetween: 40
-      },
+      
       768: {
+        slidesPerView: props.slidesPerView - 1,  
+        spaceBetween: 30
+      },
+      1200: {
         slidesPerView: props.slidesPerView,  
         spaceBetween: 40
       }
@@ -80,13 +83,15 @@ export default defineComponent({
       console.log('slide change')
     }
 
-    
+    const autoplayOptions = computed(() => ({
+      delay: 4000
+    }));
 
     return {
       modules: [Navigation, Autoplay],
       onSlideChange,
       getBreakPoints,
-      
+      autoplayOptions,
 
     }
   }

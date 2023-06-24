@@ -1,9 +1,9 @@
 <template>
     <section class="max-w-5xl my-14 sm:my-28 md:my-36   mx-[auto] pt-3 px-4" >
         <h1 class="text-center font-bold mb-14 md:text-3xl text-xl">Vivamus porttitor sem et odio tempor.</h1>
-        <c-swiper :items="leadingBrandsData" :slides-per-view="5" >
-          <template #default="{ item }">
-            <swiper-slide>
+        <c-swiper :items="leadingBrandsData">
+          <template #default="{ items }">
+            <swiper-slide v-for="item in items" :key="item.name">
               <img :src="item.href" :alt="item.name" class="bg-emerald-50" width="170" height="130">
 
             </swiper-slide>
@@ -15,10 +15,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-
+import { SwiperSlide } from 'swiper/vue'
 
 
 export default defineComponent({
+  components: {   
+    SwiperSlide
+  },
   
   setup() {
     const leadingBrandsData = ref([
@@ -41,6 +44,10 @@ export default defineComponent({
       {
         href:" https://portalvet.royalcanin.com.br/wp-content/uploads/2022/07/british-short-hair-cortado-1110x450.jpeg ",
         name: " img5 ",
+      },
+      {
+        href:" https://seres.vet/blog/wp-content/uploads/2022/06/gato-irritado-1.jpg ",
+        name:" img6 ",
       },
     ]);
 

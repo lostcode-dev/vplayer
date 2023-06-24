@@ -1,16 +1,15 @@
 <template>
   <swiper
-    :modules="modules"    
+    :modules="modules"
     :space-between="30"
     @slideChange="onSlideChange"
-    :navigation="navigation"    
+    :navigation="navigation"
     :autoplay="autoplayOptions"
     :breakpoints="getBreakPoints"
-    
   >
-    
-    <slot name="default" :items="items"/>
-    
+    <swiper-slide v-for="(item, index) in items" :key="item.name">
+      <slot :name="`slide_${index}`" :item="item" />
+    </swiper-slide>
   </swiper>
 </template>
 <script lang="ts">
@@ -18,7 +17,7 @@
 import { Navigation, Autoplay } from 'swiper'
 
 // Import Swiper Vue.js components
-import { Swiper } from 'swiper/vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -28,12 +27,10 @@ import 'swiper/css/scrollbar'
 import 'swiper/css/autoplay'
 import { defineComponent, computed } from 'vue'
 
-
-
 export default defineComponent({
   components: {
     Swiper,
-    
+    SwiperSlide
   },
   props: {
     items: {
@@ -48,36 +45,29 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    
-    leadingBrandsData: {
-      type: Array,
-      default: () => []
-    }
   },
   setup(props) {
+    const getBreakPoints = computed(() => ({
+      // Responsive breakpoints
 
-    const getBreakPoints = computed( () => ({      
-    // Responsive breakpoints
-    
-     
       320: {
         slidesPerView: props.slidesPerView - 3,
         spaceBetween: 10
-      },      
+      },
       480: {
         slidesPerView: props.slidesPerView - 2,
         spaceBetween: 20
-      },      
-      
+      },
+
       768: {
-        slidesPerView: props.slidesPerView - 1,  
+        slidesPerView: props.slidesPerView - 1,
         spaceBetween: 30
       },
       1200: {
-        slidesPerView: props.slidesPerView,  
+        slidesPerView: props.slidesPerView,
         spaceBetween: 40
       }
-    }));
+    }))
 
     const onSlideChange = () => {
       console.log('slide change')
@@ -85,14 +75,13 @@ export default defineComponent({
 
     const autoplayOptions = computed(() => ({
       delay: 4000
-    }));
+    }))
 
     return {
       modules: [Navigation, Autoplay],
       onSlideChange,
       getBreakPoints,
-      autoplayOptions,
-
+      autoplayOptions
     }
   }
 })

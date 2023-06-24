@@ -2,12 +2,8 @@
     <section class="max-w-5xl my-14 sm:my-28 md:my-36   mx-[auto] pt-3 px-4" >
         <h1 class="text-center font-bold mb-14 md:text-3xl text-xl">Vivamus porttitor sem et odio tempor.</h1>
         <c-swiper :items="leadingBrandsData">
-          <template #default="{ items }">
-            <swiper-slide v-for="item in items" :key="item.name">
+          <template v-for="(item, index) in leadingBrandsData" v-slot:[getSlotName(index)] :key="index">
               <img :src="item.href" :alt="item.name" class="bg-emerald-50" width="170" height="130">
-
-            </swiper-slide>
-
           </template>
         </c-swiper>
     </section>
@@ -15,14 +11,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { SwiperSlide } from 'swiper/vue'
 
 
 export default defineComponent({
-  components: {   
-    SwiperSlide
-  },
-  
   setup() {
     const leadingBrandsData = ref([
       {
@@ -51,8 +42,13 @@ export default defineComponent({
       },
     ]);
 
+    const getSlotName = (value) => {
+      return `slide_${value}`
+    }
+
     return {
       leadingBrandsData,
+      getSlotName
     }
   }
 })

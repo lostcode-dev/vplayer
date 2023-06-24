@@ -1,16 +1,13 @@
 <template>
   <swiper
     :modules="modules"    
-    :space-between="30"
     @slideChange="onSlideChange"
     :navigation="navigation"
-    :freeMode="true"
-    autoplay
+    :autoplay="autoplayOptions"
     :breakpoints="getBreakPoints"
+    :space-between="30"
   >
-    <swiper-slide v-for="(item, index) in (slidesPerView * 2)" :key="index">
       <slot />
-    </swiper-slide>
   </swiper>
 </template>
 <script lang="ts">
@@ -18,7 +15,7 @@
 import { Navigation, Autoplay } from 'swiper'
 
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Swiper } from 'swiper/vue'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -26,15 +23,13 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/autoplay'
-import { computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 
-
-export default {
+export default defineComponent({
   components: {
-    Swiper,
-    SwiperSlide
+    Swiper
   },
-  props: {
+  props: {    
     slidesPerView: {
       type: Number,
       default: 5
@@ -42,37 +37,45 @@ export default {
     navigation: {
       type: Boolean,
       default: false
-    }
+    },
   },
   setup(props) {
+    const getBreakPoints = computed(() => ({
+      // Responsive breakpoints
 
-    const getBreakPoints = computed( () => ({      
-    // Responsive breakpoints
-    
-      // when window width is >= 320px
       320: {
-        slidesPerView: props.slidesPerView - 2,
-        spaceBetween: 20
-      },      
-      // when window width is >= 640px
-      640: {
-        slidesPerView: props.slidesPerView - 1,  
-        spaceBetween: 40
+        slidesPerView: props.slidesPerView - 3,
+        
       },
+      480: {
+        slidesPerView: props.slidesPerView - 2,
+        
+      },
+
       768: {
-        slidesPerView: props.slidesPerView,  
-        spaceBetween: 40
+        slidesPerView: props.slidesPerView - 1,
+        
+      },
+      1200: {
+        slidesPerView: props.slidesPerView,
+        
       }
-    }));
+    }))
 
     const onSlideChange = () => {
       console.log('slide change')
     }
+
+    const autoplayOptions = computed(() => ({
+      delay: 4000
+    }))
+
     return {
       modules: [Navigation, Autoplay],
       onSlideChange,
       getBreakPoints,
+      autoplayOptions
     }
   }
-}
+})
 </script>

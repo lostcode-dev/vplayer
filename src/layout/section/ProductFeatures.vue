@@ -78,22 +78,24 @@
             </span>
           </a-button>
         </div>
-        <iframe
-          class="my-8 lg:ml-6 w-full h-96 bg-white"
-          src="https://www.youtube.com/embed/Q2-0qZoYBA0"
-          title="Barulho de Chuva para Dormir Profundamente e Relaxar - Som de Chuva com Trovões - Rain sounds #61"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+        <div v-for="(item,index) in productFeaturesVideos" :key="index">
+          <iframe v-if="isActive(index + 1)"
+            class="my-8 lg:ml-6 w-full h-96 bg-white"
+            :src="item.src"
+            :title="item.title"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script lang="ts">
-
 import { ref } from 'vue';
+
 export default {    
   setup() {
     let activeButton = ref(1);
@@ -108,11 +110,39 @@ export default {
     const isActive = (buttonNumber : number) => {
       return activeButton.value === buttonNumber;
       
-    }
+    };
+
+    const productFeaturesVideos = ref([
+      {
+        src: 'https://www.youtube.com/embed/Q2-0qZoYBA0',
+        title: 'Barulho de Chuva para Dormir Profundamente e Relaxar - Som de Chuva com Trovões - Rain sounds #61'
+      },
+      {
+        src: 'https://www.youtube.com/embed/rgjDz2h4GrY' ,
+        title: 'BARULHO DE CHUVA COM TROVÃO EM TELA ESCURA PARA DORMIR.'
+      },
+      {
+        src: 'https://www.youtube.com/embed/aLuShQwNYRE' ,
+        title: 'Relaxing Music for Sleep + Insomnia - Stress Relief, Relaxing Music, Music for Deep Sleep'
+      },
+      {
+        src: 'https://www.youtube.com/embed/DNJ5JqLw9YM' ,
+        title: '2 Hours Ghibli Bmg For Work 🚖 Relaxing Ghibli Music, Ghibli Studio'
+      },
+      {
+        src: 'https://www.youtube.com/embed/JzRfvrLNoOQ' ,
+        title: 'Studio Ghibli ambient music'
+      },
+      {
+        src: 'https://www.youtube.com/embed/-pBLZzZdQ0s' ,
+        title: 'The Sound of Inner Peace 5 | Relaxing Music for Meditation, Zen, Yoga & Stress Relief'
+      },
+    ])
 
     return {           
       toggleButton,
-      isActive
+      isActive,
+      productFeaturesVideos
     };
   }
 };

@@ -14,10 +14,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { ref } from 'vue'
 import { SwiperSlide } from 'swiper/vue'
 
-export default defineComponent({
+export default {
   components: {
     SwiperSlide
   },
@@ -53,5 +53,5 @@ export default defineComponent({
       leadingBrandsData
     }
   }
-})
+}
 </script>

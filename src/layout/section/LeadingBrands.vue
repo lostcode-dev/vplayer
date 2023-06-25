@@ -1,7 +1,7 @@
 <template>
   <section class="max-w-5xl my-14 sm:my-28 md:my-36 mx-[auto] pt-3 px-4">
     <h1 class="text-center font-bold mb-14 md:text-3xl text-xl">
-      Vivamus porttitor sem et odio tempor.
+      Usado pelos melhores do Brasil
     </h1>
     <c-swiper>
       

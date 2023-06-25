@@ -1,13 +1,13 @@
 <template>
   <swiper
-    :modules="modules"    
+    :modules="modules"
     @slideChange="onSlideChange"
     :navigation="navigation"
     :autoplay="autoplayOptions"
     :breakpoints="getBreakPoints"
     :space-between="30"
   >
-      <slot />
+    <slot />
   </swiper>
 </template>
 <script lang="ts">
@@ -29,7 +29,7 @@ export default defineComponent({
   components: {
     Swiper
   },
-  props: {    
+  props: {
     slidesPerView: {
       type: Number,
       default: 5
@@ -38,27 +38,25 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    breakPoints: {
+      type: Object,
+      default: {}
+    }
   },
   setup(props) {
-    const getBreakPoints = computed(() => ({
-      // Responsive breakpoints
-
+    const getBreakPoints = computed(() =>(props.breakPoints.length ? props.breakPoints : {
       320: {
-        slidesPerView: props.slidesPerView - 3,
-        
+        slidesPerView: props.slidesPerView - 3
       },
       480: {
-        slidesPerView: props.slidesPerView - 2,
-        
+        slidesPerView: props.slidesPerView - 2
       },
 
       768: {
-        slidesPerView: props.slidesPerView - 1,
-        
+        slidesPerView: props.slidesPerView - 1
       },
       1200: {
-        slidesPerView: props.slidesPerView,
-        
+        slidesPerView: props.slidesPerView
       }
     }))
 

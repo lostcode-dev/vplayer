@@ -2,7 +2,7 @@
   <section class="w-full bg-emerald-50 px-4 py-8">
     <div
       
-      class="max-w-5xl mx-[auto] pt-3 flex justify-center items-center flex-col"
+      class="max-w-5xl mx-[auto] pt-3 flex justify-center  flex-col"
     >
       <h1 class="text-center mb-4 font-bold text-4xl">Lorem ipsum dolor sit amet Nullam.</h1>
       <p class="text-center font-semibold text-xl mb-10">
@@ -10,8 +10,8 @@
         malesuada fames ac turpis egestas. Pellentesque ut rutrum purus.
       </p>
 
-      <div class=" lg:flex lg:justify-center lg:items-center px-6">
-        <div class="max-w-[85%] lg:max-w-[30%] mx-10 px-4 lg:pr-8 flex lg:block lg:text-left text-sm lg:text-xl">
+      <div class="lg:flex lg:justify-center lg:items-center px-16">
+        <div class="lg:max-w-[35%] px-4 flex justify-center lg:block lg:text-left text-sm lg:text-xl">
           <a-button
             :activeButton="isActive(1)"
             @click="toggleButton(1)"         
@@ -78,9 +78,10 @@
             </span>
           </a-button>
         </div>
-        <div v-for="(item,index) in productFeaturesVideos" :key="index">
+        <div v-for="(item,index) in productFeaturesVideos" :key="index"
+          >
           <iframe v-if="isActive(index + 1)"
-            class="my-8 lg:ml-6 w-full h-96 bg-white"
+            class="pl-4 pr-2 my-8 lg:ml-20 lg:mr-40 w-full h-96"
             :src="item.src"
             :title="item.title"
             frameborder="0"

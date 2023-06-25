@@ -1,13 +1,14 @@
 <template>
   <section
     
-    class="max-w-5xl mx-[auto] pt-3 flex items-center"
+    class="max-w-5xl mx-[auto] pt-3 items-center my-8 sm:my-10 md:my-14 px-4 py-8"
   >
-    <div class="max-w-[50%] pr-8 flex flex-col self-center">
-      <h1 class="text-left mb-3 font-bold text-4xl">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit Nullam.
-      </h1>
-      <p class="text-left font-semibold text-xl mb-6">Vivamus porttitor sem et odio tempor.</p>
+  <h1 class="text-center mb-3 lg:mb-12 font-bold text-4xl">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit Nullam.
+  </h1>
+  <div class="lg:flex lg:items-center px-4">
+    <div class="lg:max-w-[50%] lg:pr-8 lg:flex lg:flex-col self-center">
+      <p class="text-center font-semibold text-xl mb-6">Vivamus porttitor sem et odio tempor.</p>
       <p class="text-justify mb-2">
         Maecenas sed dui urna. Quisque hendrerit lobortis tempor. Nam aliquam a ipsum eu hendrerit.
         Quisque rhoncus in orci ut pellentesque. Duis ut congue nibh. Integer nec justo ac quam
@@ -32,15 +33,22 @@
         quam quis augue. Nunc eget cursus velit.
       </p>
 
-      <a-button
-        fontSize="xl"
-        :paddingSize="8"
-        class="self-center mt-4"
-      >
-        Entrar na lista de espera
-      </a-button>
     </div>
-    <iframe class="ml-6 w-full h-96 bgemeraldld-50" src="https://www.youtube.com/embed/Q2-0qZoYBA0" title="Barulho de Chuva para Dormir Profundamente e Relaxar - Som de Chuva com Trovões - Rain sounds #61" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="my-8 lg:mt-0 lg:ml-4 w-full h-96 px-4 bgemeraldld-50" src="https://www.youtube.com/embed/Q2-0qZoYBA0" title="Barulho de Chuva para Dormir Profundamente e Relaxar - Som de Chuva com Trovões - Rain sounds #61" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    
+  </div>
+  <div class="flex justify-center">
+    <a-button
+      fontSize="xl"
+      :paddingSize="8"
+      class="self-center mt-4"
+    >
+      Entrar na lista de espera
+    </a-button>
+
+  </div>
+
+  
   </section>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <section class="w-full bg-emerald-50">
     <div
-      style="height: calc(100vh - 3.5rem)"
+      
       class="max-w-5xl mx-[auto] pt-3 flex justify-center items-center flex-col"
     >
       <h1 class="text-center mb-4 font-bold text-4xl">Lorem ipsum dolor sit amet Nullam.</h1>

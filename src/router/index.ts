@@ -19,6 +19,16 @@ const router = createRouter({
       name: 'help',
       component: () => import('../pages/sigin/Help.vue')
     },
+    {
+      path: '/terms-of-use',
+      name: 'terms-of-use',
+      component: () => import('../pages/TermsOfUse/TermsOfUse.vue')
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy-policy',
+      component: () => import('../pages/PrivacyPolicy/PrivacyPolicy.vue')
+    },
   ]
 })
 

@@ -10,7 +10,7 @@
         malesuada fames ac turpis egestas. Pellentesque ut rutrum purus.
       </p>
 
-      <div class="lg:flex lg:justify-center lg:items-center px-16">
+      <div class="lg:flex lg:justify-center lg:items-center px-4 md:px-16">
         <div class="lg:max-w-[35%] px-4 flex justify-center lg:block lg:text-left text-sm lg:text-xl">
           <a-button
             :activeButton="isActive(1)"
@@ -81,7 +81,7 @@
         <div v-for="(item,index) in productFeaturesVideos" :key="index"
           >
           <iframe v-if="isActive(index + 1)"
-            class="pl-4 pr-2 my-8 lg:ml-20 lg:mr-40 w-full h-96"
+            class="md:pl-4 md:pr-2 my-8 lg:ml-20 lg:mr-40 w-full h-96"
             :src="item.src"
             :title="item.title"
             frameborder="0"

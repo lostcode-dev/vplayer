@@ -33,7 +33,7 @@
             </router-link>
           </li>
 
-          <a-button class="text-lg mx-8"> Seja o primeiro a saber </a-button>
+          <a-button class="text-base md:text-lg mx-8"> Seja o primeiro a saber </a-button>
         </ul>
       </div>
     </nav>

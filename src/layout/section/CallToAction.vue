@@ -7,10 +7,8 @@
         Lorem ipsum dolor sit amet.
       </h1>
       <p class="text-center font-semibold text-base md:text-xl mb-6">Vivamus porttitor sem et odio tempor, consectetur adipiscing elit Nullam.</p>
-      <a-button
-        fontSize="text-base"
-        :paddingSize="4"
-        class=" md:text-xl md:px-8 mt-3 lg:mt-6 self-center"
+      <a-button                
+        class="mt-3 lg:mt-6 self-center"
       >
         Receba informações privilegiadas
       </a-button>

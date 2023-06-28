@@ -1,10 +1,10 @@
 <template>
   <section class="w-full bg-emerald-50 pt-8 pb-20 mt-20 sm:mt-28 md:mt-36 mx-[auto] px-4">
     <div class="max-w-5xl mx-[auto] pt-3">
-      <h1 class="text-center mb-3 font-bold text-3xl">
+      <h1 class="text-center mb-3 font-bold text-2xl md:text-4xl">
         Todas Essas Pessoas Já Estão Utilizando Nosso Produto
       </h1>
-      <p class="text-center font-semibold text-xl mb-10">
+      <p class="text-center font-semibold md:text-xl mb-10">
         O único player do mercado que lhe dá liberdade. E aqui está a prova:
       </p>
 

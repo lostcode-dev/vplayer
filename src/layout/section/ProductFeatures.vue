@@ -4,8 +4,8 @@
       
       class="max-w-5xl mx-[auto] pt-3 flex justify-center  flex-col"
     >
-      <h1 class="text-center mb-4 font-bold text-4xl">Lorem ipsum dolor sit amet Nullam.</h1>
-      <p class="text-center font-semibold text-xl mb-10">
+      <h1 class="text-center mb-4 font-bold text-2xl md:text-4xl">Lorem ipsum dolor sit amet Nullam.</h1>
+      <p class="text-center font-semibold md:text-xl mb-10">
         Nullam facilisis semper aliquet. Pellentesque habitant morbi tristique senectus et netus et
         malesuada fames ac turpis egestas. Pellentesque ut rutrum purus.
       </p>

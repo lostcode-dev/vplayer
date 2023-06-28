@@ -1,6 +1,6 @@
 <template>
   <button
-    class="transition-all"
+    class="transition-all md:px-8 md:py-4 text-base md:text-xl"
     :class="`text-${fontSize} text-${currentColor} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColorClass} `"
     @click="toggleButton"
     

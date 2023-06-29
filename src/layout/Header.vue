@@ -16,7 +16,7 @@
       </div>
       <div>
         <ul        
-        class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-emerald-50 w-full left-0 md:w-auto md:py-0 py-3 md:pl-0 pl-3"
+        class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-emerald-50 w-full left-0 md:w-auto md:py-0 py-3 md:pl-0 px-3"
         :class="{ 'hidden': !isMenuVisible, 'block': isMenuVisible }"      
         >
           <li class="mx-8 my-6 md:my-0">
@@ -33,7 +33,7 @@
             </router-link>
           </li>
 
-          <a-button class="text-lg mx-8"> Seja o primeiro a saber </a-button>
+          <a-button class="px-8 w-full" fontSize="lg" > Seja o primeiro a saber </a-button>
         </ul>
       </div>
     </nav>

@@ -1,9 +1,11 @@
 <template>
+  <!--Usado autoplayTimeout para corrigir bug de slides exibindo apenas o 'name'-->
   <swiper
     :modules="modules"
     @slideChange="onSlideChange"
     :navigation="navigation"
     :autoplay="autoplayOptions"
+    :autoplayTimeout="3" 
     :breakpoints="getBreakPoints"
     :space-between="30"
   >

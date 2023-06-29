@@ -6,9 +6,11 @@
       <h1 class="text-center mb-1.5 sm:mb-2 md:mb-2.5 lg:mb-3 font-bold text-2xl md:text-4xl">
         Lorem ipsum dolor sit amet.
       </h1>
-      <p class="text-center font-semibold mb-1 sm:mb-2 md:mb-4 lg:mb-6 text-base md:text-xl">Vivamus porttitor sem et odio tempor, consectetur adipiscing elit Nullam.</p>
+      <p class="text-center font-semibold mb-2 md:mb-4 lg:mb-6 text-base md:text-xl">Vivamus porttitor sem et odio tempor, consectetur adipiscing elit Nullam.</p>
       <a-button                
-        class="self-center"
+        class="self-center mt-2 md:text-xl"
+        :paddingSize="8" 
+        fontSize="lg"
       >
         Receba informações privilegiadas
       </a-button>

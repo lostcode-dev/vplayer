@@ -1,16 +1,17 @@
 <template>
   <button
-    class="transition-all md:px-8 md:py-4 text-base md:text-xl"
-    :class="`text-${fontSize} text-${currentColor} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(paddingSize / 2)} font-${fontWeight} ${backgroundColorClass} `"
+    :class="`text-${fontSize} text-${currentColor} text-${textAlign} rounded-${radius} px-${paddingSize} py-${Math.round(
+      paddingSize / 2
+    )} font-${fontWeight} ${backgroundColorClass} `"
+    class="transition-all text-base"    
     @click="toggleButton"
-    
   >
     <slot></slot>
   </button>
 </template>
 
 <script lang="ts">
-import { computed, defineEmits, ref } from 'vue';
+import { computed } from 'vue'
 export default {
   props: {
     radius: {
@@ -27,7 +28,8 @@ export default {
     },
     backgroundColor: {
       type: String,
-      default: 'bg-gradient-to-r from-teal-500 to-emerald-500 hover:to-teal-500 hover:from-emerald-500'
+      default:
+        'bg-gradient-to-r from-teal-500 to-emerald-500 hover:to-teal-500 hover:from-emerald-500'
     },
     fontSize: {
       type: String,
@@ -42,20 +44,19 @@ export default {
       default: 'white'
     },
     activeButton: {
-      type: Boolean,      
-      default: undefined,
+      type: Boolean,
+      default: undefined
     }
   },
   components: {},
-  emits: ["click"],
-  setup(props, {emit}) {
-    
-    const toggleButton = () => {      
-      emit('click', !props.activeButton);
-    };
+  emits: ['click'],
+  setup(props, { emit }) {
+    const toggleButton = () => {
+      emit('click', !props.activeButton)
+    }
 
-    const currentColor = computed( () => {
-      if (props.activeButton === undefined || props.activeButton ) {
+    const currentColor = computed(() => {
+      if (props.activeButton === undefined || props.activeButton) {
         return props.color
       } else {
         return 'black'
@@ -63,15 +64,15 @@ export default {
     })
     const backgroundColorClass = computed(() => {
       if (props.activeButton === undefined) {
-        return props.backgroundColor;
+        return props.backgroundColor
       } else if (props.activeButton) {
-        return props.backgroundColor;
-      } 
-    });
-    return {      
+        return props.backgroundColor
+      }
+    })
+    return {
       toggleButton,
       backgroundColorClass,
-      currentColor,
+      currentColor
     }
   }
 }

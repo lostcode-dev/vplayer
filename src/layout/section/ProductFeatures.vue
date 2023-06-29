@@ -14,9 +14,8 @@
         <div class="lg:max-w-[35%] px-4 flex justify-center lg:block lg:text-left text-sm lg:text-xl">
           <a-button
             :activeButton="isActive(1)"
-            @click="toggleButton(1)"         
-                      
-            class="lg:px-6 py-2 mt-3 mb-4"
+            @click="toggleButton(1)"        
+            class="lg:w-64 lg:text-left lg:px-6 py-2 mt-3 mb-4"
           >
             <i-fast-foward-ten class="lg:mr-2" :width="25" :height="25" /> 
             <span class="hidden lg:inline">
@@ -27,7 +26,7 @@
             :activeButton="isActive(2)"
             @click="toggleButton(2)"           
             
-            class="lg:px-5 py-2 mt-3 mb-4"
+            class="lg:w-64 lg:text-left lg:px-5 py-2 mt-3 mb-4"
           >
             <i-rewind-ten class="lg:mr-2" :width="25" :height="25" /> 
             <span class="hidden lg:inline">
@@ -37,7 +36,7 @@
           <a-button
             :activeButton="isActive(3)"
             @click="toggleButton(3)"                        
-            class="lg:px-6 py-2 mt-3 mb-4"
+            class="lg:w-64 lg:text-left lg:px-6 py-2 mt-3 mb-4"
           >
             <i-pause class="lg:mr-2"  :width="25" :height="25" /> 
             <span class="hidden lg:inline">
@@ -47,7 +46,7 @@
           <a-button
             :activeButton="isActive(4)"
             @click="toggleButton(4)"                        
-            class="lg:px-6 py-2 mt-3 mb-4"
+            class="lg:w-64 lg:text-left lg:px-6 py-2 mt-3 mb-4"
           >
             <i-play class="lg:mr-2"  :width="25" :height="25" />
             <span class="hidden lg:inline">
@@ -56,9 +55,8 @@
           </a-button>
           <a-button
             :activeButton="isActive(5)"
-            @click="toggleButton(5)"
-                        
-            class="lg:px-6 py-2 mt-3 mb-4"            
+            @click="toggleButton(5)"                        
+            class="lg:w-64 lg:text-left lg:px-6 py-2 mt-3 mb-4"            
           >
             <i-volume-mute class="lg:mr-2" :width="25" :height="25" /> 
             <span class="hidden lg:inline">
@@ -67,10 +65,8 @@
           </a-button>
           <a-button
             :activeButton="isActive(6)"
-            @click="toggleButton(6)"
-            
-            textAlign="left"
-            class="lg:px-6 py-2 mt-3 mb-4"
+            @click="toggleButton(6)"          
+            class="lg:w-64 lg:text-left lg:px-6 py-2 mt-3 mb-4"
           >
             <i-volume-high class="lg:mr-2" :width="25" :height="25" /> 
             <span class="hidden lg:inline">

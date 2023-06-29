@@ -24,27 +24,27 @@ export default {
   setup() {
     const leadingBrandsData = ref([
       {
-        href: ' https://play-lh.googleusercontent.com/ahJtMe0vfOlAu1XJVQ6rcaGrQBgtrEZQefHy7SXB7jpijKhu1Kkox90XDuH8RmcBOXNn ',
+        href: ' src/assets/logo1.png ',
         name: ' img1 '
       },
       {
-        href: ' https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/1024px-LEGO_logo.svg.png ',
+        href: ' src/assets/logo2.png ',
         name: ' img2 '
       },
       {
-        href: ' https://png.pngtree.com/element_origin_min_pic/16/11/02/bd886d7ccc6f8dd8db17e841233c9656.jpg ',
+        href: ' src/assets/logo3.jpg ',
         name: ' img3 '
       },
       {
-        href: ' https://assets.turbologo.com/blog/pt/2019/11/19133547/gaming-logo-cover.jpg ',
+        href: ' src/assets/logo4.jpg ',
         name: ' img4 '
       },
       {
-        href: ' https://en.ephoto360.com/uploads/effect-data/en.ephoto360.com/0topvzyla/9-min62442e7dbefd2.jpg',
+        href: ' src/assets/logo5.jpg',
         name: ' img5 '
       },
       {
-        href: ' https://play-lh.googleusercontent.com/Fro4e_osoDhhrjgiZ_Y2C5FNXBMWvrb4rGpmkM1PDAcUPXeiAlPCq7NeaT4Q6NRUxRqo ',
+        href: ' src/assets/logo6.png ',
         name: ' img6 '
       }
     ])

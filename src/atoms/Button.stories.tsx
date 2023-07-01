@@ -4,6 +4,7 @@ import Button from './Button.vue';
 
 const meta = {
   component: Button,
+  
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -15,8 +16,11 @@ type Story = StoryObj<typeof meta>;
  * to learn how to use render functions.
  */
 export const Primary: Story = {
-  render: () => ({
+  render: (args) => ({
     components: { Button },
-    template: '<Button primary label="Button" />',
-  }),
+    setup() {
+      return {args};
+    },
+    template: '<Button v-bind="args"> Click Here </Button',
+  }),  
 };

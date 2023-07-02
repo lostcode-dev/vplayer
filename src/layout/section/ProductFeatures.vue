@@ -14,53 +14,16 @@
           class="lg:max-w-[35%] px-4 flex justify-center lg:block lg:text-left text-sm lg:text-xl"
         >
           <a-button
-            :activeButton="isActive(1)"
-            @click="toggleButton(1)"
+            v-for="(button, index) in buttons"
+            :key="index"
+            :activeButton="isActive(index + 1)"
+            @click="toggleButton(index + 1)"
             class="lg:w-64 lg:text-left lg:px-6 md:py-2 py-2 mt-3 mb-3"
           >
-            <i-fast-foward-ten class="lg:mr-2" :width="25" :height="25" />
-            <span class="hidden lg:inline"> Nibh sagittis </span>
+            <component :is="button.iconComponent" class="lg:mr-2" :width="25" :height="25" />
+            <span class="hidden lg:inline">{{ button.label }}</span>
           </a-button>
-          <a-button
-            :activeButton="isActive(2)"
-            @click="toggleButton(2)"
-            class="lg:w-64 lg:text-left lg:px-5 md:py-2 py-2 mt-3 mb-3"
-          >
-            <i-rewind-ten class="lg:mr-2" :width="25" :height="25" />
-            <span class="hidden lg:inline"> Suspendisse tortor </span>
-          </a-button>
-          <a-button
-            :activeButton="isActive(3)"
-            @click="toggleButton(3)"
-            class="lg:w-64 lg:text-left lg:px-6 md:py-2 py-2 mt-3 mb-3"
-          >
-            <i-pause class="lg:mr-2" :width="25" :height="25" />
-            <span class="hidden lg:inline"> Sed enim tempus </span>
-          </a-button>
-          <a-button
-            :activeButton="isActive(4)"
-            @click="toggleButton(4)"
-            class="lg:w-64 lg:text-left lg:px-6 md:py-2 py-2 mt-3 mb-3"
-          >
-            <i-play class="lg:mr-2" :width="25" :height="25" />
-            <span class="hidden lg:inline"> Aliquam volutpat </span>
-          </a-button>
-          <a-button
-            :activeButton="isActive(5)"
-            @click="toggleButton(5)"
-            class="lg:w-64 lg:text-left lg:px-6 md:py-2 py-2 mt-3 mb-3"
-          >
-            <i-volume-mute class="lg:mr-2" :width="25" :height="25" />
-            <span class="hidden lg:inline"> Etiam metus </span>
-          </a-button>
-          <a-button
-            :activeButton="isActive(6)"
-            @click="toggleButton(6)"
-            class="lg:w-64 lg:text-left lg:px-6 md:py-2 py-2 mt-3 mb-3"
-          >
-            <i-volume-high class="lg:mr-2" :width="25" :height="25" />
-            <span class="hidden lg:inline"> Volutpat metus </span>
-          </a-button>
+          
         </div>
         <div v-for="(item, index) in productFeaturesVideos" :key="index">
           <iframe
@@ -123,10 +86,38 @@ export default {
       }
     ])
 
+    const buttons = [
+      {
+        label: 'Nibh sagittis',
+        iconComponent: 'i-fast-foward-ten'
+      },
+      {
+        label: 'Suspendisse tortor',
+        iconComponent: 'i-rewind-ten'
+      },
+      {
+        label: 'Sed enim tempus',
+        iconComponent: 'i-pause'
+      },
+      {
+        label: 'Aliquam volutpat',
+        iconComponent: 'i-play'
+      },
+      {
+        label: 'Etiam metus',
+        iconComponent: 'i-volume-mute'
+      },
+      {
+        label: 'Volutpat metus',
+        iconComponent: 'i-volume-high'
+      }
+    ]
+
     return {
       toggleButton,
       isActive,
-      productFeaturesVideos
+      productFeaturesVideos,
+      buttons
     }
   }
 }

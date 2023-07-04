@@ -14,10 +14,14 @@ import App from './App.vue'
 import router from './router'
 import messages from './i18n'
 
+import languages from './i18n';
+
+const ptBR = languages['pt-BR'];
+
 const i18n = createI18n({
-    locale: 'en', // set locale
-    fallbackLocale: 'en', // set fallback locale
-    messages, // set locale messages
+    locale: 'ptBR', // set locale
+    fallbackLocale: 'ptBR', // set fallback locale
+    messages: ptBR, // set locale messages
 })
 
 const app = createApp(App)

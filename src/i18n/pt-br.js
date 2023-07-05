@@ -1,5 +1,5 @@
 export default {
   help: 'Ajuda',
-  login: 'Login',
+  login: 'Loginnnnn',
   button: 'Seja o primeiro a saber'
 }

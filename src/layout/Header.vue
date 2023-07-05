@@ -21,7 +21,7 @@
         >
           <li class="mx-8 my-6 md:my-0">
             <router-link class="text-lg font-semibold hover:text-teal-500 duration-500" :to="{ name: 'help'}">
-              Ajuda
+              {{ $t('help') }}
             </router-link>            
           </li>
           <li class="mx-8 my-6 md:my-0">
@@ -48,8 +48,7 @@ import { ref, onMounted, onBeforeUnmount  } from 'vue';
 export default {
   setup() {
     const isMenuVisible = ref(false);
-    
-     
+       
     const toggleMenu = () => {
       isMenuVisible.value = !isMenuVisible.value
     }

@@ -14,18 +14,11 @@ import App from './App.vue'
 import router from './router'
 import messages from './i18n'
 
-//mport languages from './i18n/index';
-
-//const ptBR = languages['pt-BR'];
-import pt_BR from './i18n/pt-br.js'
-
-type MessageSchema = typeof pt_BR
-
-const i18n = createI18n<[MessageSchema], 'pt-BR' | 'en-US'>({    
-    locale: 'pt', // set locale   
-    messages: {
-        'pt-BR': pt_BR
-    } // set locale messages
+const i18n = createI18n({
+    legacy: false, // you must set `false`, to use Composition API
+    locale: 'pt-BR', // set locale
+    fallbackLocale: 'pt-BR', // set fallback locale
+    messages, // set locale messages
 })
 
 const app = createApp(App)

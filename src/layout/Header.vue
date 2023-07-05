@@ -21,7 +21,7 @@
         >
           <li class="mx-8 my-6 md:my-0">
             <router-link class="text-lg font-semibold hover:text-teal-500 duration-500" :to="{ name: 'help'}">
-              {{ $t('header.help') }}
+              Ajuda
             </router-link>            
           </li>
           <li class="mx-8 my-6 md:my-0">

@@ -21,7 +21,7 @@
               class="text-lg font-semibold hover:text-teal-500 duration-500"
               :to="{ name: 'help' }"
             >
-              {{ $t('help') }}
+              {{  t('help') }}
             </router-link>
           </li>
           <li class="mx-8 my-6 md:my-0">
@@ -31,9 +31,15 @@
             >
               {{ t('login') }}
             </router-link>
-          </li>
+          </li>          
 
-          <a-button class="px-8 w-full" fontSize="lg"> Seja o primeiro a saber </a-button>
+          <select v-model="lang" @change="handleChange($event)">            
+            <option value="pt-BR">Português</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+          
+          <a-button class="px-8" fontSize="lg"> {{ t('button') }} </a-button>
         </ul>
       </div>
     </nav>
@@ -42,10 +48,24 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-export default {
+
+  export default {
+    data: function() {
+      const lang = localStorage.getItem('lang') || 'en';
+      return {
+        lang: lang
+      }
+    },
+    methods: {
+      handleChange(event){
+        localStorage.setItem('lang', event.target.value);
+        window.location.reload();
+      }
+    },
+
   setup() {
     const isMenuVisible = ref(false)
 
@@ -59,11 +79,15 @@ export default {
       isMenuVisible.value = false
     }
 
+    const selected = ref('')
+
     return {
       toggleMenu,
       isMenuVisible,
       hideMenu,
-      t
+      t,
+      selected
+      
     }
   }
 }

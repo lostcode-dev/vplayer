@@ -16,7 +16,7 @@ import messages from './i18n'
 
 const i18n = createI18n({
     legacy: false, // you must set `false`, to use Composition API
-    locale: 'pt-BR', // set locale
+    locale: 'es', // set locale
     fallbackLocale: 'pt-BR', // set fallback locale
     messages, // set locale messages
 })

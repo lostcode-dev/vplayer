@@ -48,28 +48,16 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 
   export default {
-    data: function() {
-      const lang = localStorage.getItem('lang') || 'en';
-      return {
-        lang: lang
-      }
-    },
-    methods: {
-      handleChange(event){
-        localStorage.setItem('lang', event.target.value);
-        window.location.reload();
-      }
-    },
-
+    
   setup() {
     const isMenuVisible = ref(false)
 
-    const { t } = useI18n({ useScope: 'global' })
+    const { t, locale } = useI18n({ useScope: 'global' })
 
     const toggleMenu = () => {
       isMenuVisible.value = !isMenuVisible.value
@@ -79,14 +67,27 @@ import { useI18n } from 'vue-i18n'
       isMenuVisible.value = false
     }
 
-    const selected = ref('')
+    const lang = ref<string>(localStorage.getItem('lang') || 'pt-BR');
+
+    watch(lang, (newLang: string) => {
+      localStorage.setItem('lang', newLang);
+      locale.value = newLang;
+    });
+
+    const handleChange = (event: Event) => {
+      const target = event.target as HTMLSelectElement;
+      lang.value = target.value;
+    };
+    
 
     return {
       toggleMenu,
       isMenuVisible,
       hideMenu,
       t,
-      selected
+      lang,
+      handleChange
+      
       
     }
   }

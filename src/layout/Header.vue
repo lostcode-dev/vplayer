@@ -33,11 +33,26 @@
             </router-link>
           </li>          
 
-          <select v-model="lang" @change="handleChange($event)">            
-            <option value="pt-BR">Português</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-          </select>
+          <div class="relative">
+            <div
+              class="flex items-center cursor-pointer mr-4"
+              @click="toggleDropdown"
+            >
+              <img :src="selectedOption?.image" class="h-8 w-8 rounded-full mr-2" alt="Language Icon">
+              <span class="text-lg font-semibold hover:text-teal-500 duration-500">{{ selectedOption?.name }}</span>
+            </div>
+            <div v-if="isDropdownVisible" class="absolute mt-2 bg-white border border-gray-300 rounded-lg shadow-lg">
+              <div
+                v-for="option in languageOptions"
+                :key="option.value"
+                class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                @click="selectOption(option)"
+              >
+                <img :src="option.image" class="h-6 w-6 rounded-full mr-2" alt="Language Icon">
+                <span class="text-sm">{{ option.name }}</span>
+              </div>
+            </div>
+          </div>
           
           <a-button class="px-8" fontSize="lg"> {{ t('button') }} </a-button>
         </ul>
@@ -48,8 +63,13 @@
 </template>
 
 <script lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+interface LanguageOption {
+  value: string;
+  name: string;
+  image: string;
+}
 
 
   export default {
@@ -69,9 +89,21 @@ import { useI18n } from 'vue-i18n'
 
     const lang = ref<string>(localStorage.getItem('lang') || 'pt-BR');
 
+    const languageOptions: LanguageOption[] = [
+      { value: 'pt-BR', name: 'Português', image: 'src/assets/brazil.png' },
+      { value: 'en', name: 'English', image: 'src/assets/usa.png' },
+      { value: 'es', name: 'Español', image: 'src/assets/spain.png' }
+    ]    
+
+
+    const selectedOption = computed(() => {
+      return languageOptions.find(option => option.value === lang.value)
+    })
+
     watch(lang, (newLang: string) => {
       localStorage.setItem('lang', newLang);
       locale.value = newLang;
+      selectedOption.value = languageOptions.find(option => option.value === newLang)
     });
 
     const handleChange = (event: Event) => {
@@ -79,6 +111,16 @@ import { useI18n } from 'vue-i18n'
       lang.value = target.value;
     };
     
+    const isDropdownVisible = ref(false)
+
+    const toggleDropdown = () => {
+      isDropdownVisible.value = !isDropdownVisible.value
+    }
+
+    const selectOption = (option: LanguageOption) => {
+      lang.value = option.value
+      isDropdownVisible.value = false
+    }
 
     return {
       toggleMenu,
@@ -86,8 +128,12 @@ import { useI18n } from 'vue-i18n'
       hideMenu,
       t,
       lang,
-      handleChange
-      
+      handleChange,
+      languageOptions,
+      selectedOption,
+      isDropdownVisible,
+      toggleDropdown,
+      selectOption      
       
     }
   }

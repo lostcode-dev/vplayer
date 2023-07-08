@@ -13,10 +13,10 @@
       </div>
       <div>
         <ul
-          class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-emerald-50 w-full left-0 md:w-auto md:py-0 py-3 md:pl-0 px-3"
+          class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-emerald-50 w-full left-0 md:w-auto md:py-0 py-3 md:pl-0 px-3 "
           :class="{ hidden: !isMenuVisible, block: isMenuVisible }"
         >
-          <li class="mx-8 my-6 md:my-0">
+          <li class="mx-6 my-6 md:my-0">
             <router-link
               class="text-lg font-semibold hover:text-teal-500 duration-500"
               :to="{ name: 'help' }"
@@ -24,7 +24,7 @@
               {{  t('help') }}
             </router-link>
           </li>
-          <li class="mx-8 my-6 md:my-0">
+          <li class="mx-6 my-6 md:my-0">
             <router-link
               class="text-lg font-semibold hover:text-teal-500 duration-500"
               :to="{ name: 'login' }"
@@ -33,23 +33,23 @@
             </router-link>
           </li>          
 
-          <div class="relative">
+          <div class="relative mr-8 ml-2" >
             <div
-              class="flex items-center cursor-pointer mr-4"
-              @click="toggleDropdown"
+              class="flex items-center cursor-pointer "             
+              @mouseenter="toggleDropdown"
             >
-              <img :src="selectedOption?.image" class="h-8 w-8 rounded-full mr-2" alt="Language Icon">
-              <span class="text-lg font-semibold hover:text-teal-500 duration-500">{{ selectedOption?.name }}</span>
+              <img :src="selectedOption?.image" class="h-6 w-6 rounded-full" alt="Language Icon">
+              
             </div>
-            <div v-if="isDropdownVisible" class="absolute mt-2 bg-white border border-gray-300 rounded-lg shadow-lg">
+            <div v-if="isDropdownVisible" @mouseleave="hideLangMenu" class="left-1/2 transform -translate-x-1/2 absolute mt-2 bg-white border border-gray-300 rounded-lg shadow-lg">
               <div
                 v-for="option in languageOptions"
                 :key="option.value"
-                class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                class="flex justify-start items-center py-3 pl-4 pr-10 hover:bg-gray-100 cursor-pointer hover:text-teal-500 duration-500"
                 @click="selectOption(option)"
               >
-                <img :src="option.image" class="h-6 w-6 rounded-full mr-2" alt="Language Icon">
-                <span class="text-sm">{{ option.name }}</span>
+                <img :src="option.image" class="h-6 w-6 rounded-full mr-3" alt="Language Icon">
+                <span class="text-sm font-semibold text-right">{{ option.name }}</span>
               </div>
             </div>
           </div>
@@ -85,8 +85,8 @@ interface LanguageOption {
 
     const hideMenu = () => {
       isMenuVisible.value = false
-    }
-
+    }  
+    
     const lang = ref<string>(localStorage.getItem('lang') || 'pt-BR');
 
     const languageOptions: LanguageOption[] = [
@@ -122,6 +122,10 @@ interface LanguageOption {
       isDropdownVisible.value = false
     }
 
+    const hideLangMenu = () => {
+      isDropdownVisible.value = false
+    }
+
     return {
       toggleMenu,
       isMenuVisible,
@@ -133,7 +137,8 @@ interface LanguageOption {
       selectedOption,
       isDropdownVisible,
       toggleDropdown,
-      selectOption      
+      selectOption,
+      hideLangMenu      
       
     }
   }

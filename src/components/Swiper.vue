@@ -42,25 +42,30 @@ export default defineComponent({
     },
     breakPoints: {
       type: Object,
-      default: {}
+      default: () => {}
     }
   },
   setup(props) {
-    const getBreakPoints = computed(() =>(props.breakPoints.length ? props.breakPoints : {
-      320: {
-        slidesPerView: props.slidesPerView - 3
-      },
-      480: {
-        slidesPerView: props.slidesPerView - 2
-      },
-
-      768: {
-        slidesPerView: props.slidesPerView - 1
-      },
-      1200: {
-        slidesPerView: props.slidesPerView
+    const getBreakPoints = computed(() => {
+      if (props.breakPoints && Object.keys(props.breakPoints).length > 0 ) {
+        return props.breakPoints;
       }
-    }))
+      return{
+        320: {
+          slidesPerView: props.slidesPerView - 3
+        },
+        480: {
+          slidesPerView: props.slidesPerView - 2
+        },
+
+        768: {
+          slidesPerView: props.slidesPerView - 1
+        },
+        1200: {
+          slidesPerView: props.slidesPerView
+        }
+      }  
+    })
 
     const onSlideChange = () => {
       console.log('slide change')

@@ -6,6 +6,7 @@ import CustomerReviews from './section/CustomerReviews.vue'
 import LeadingBrands from './section/LeadingBrands.vue'
 import ProductFeatures from './section/ProductFeatures.vue'
 import ProductOverview from './section/ProductOverview.vue'
+import LangSelector from './LangSelector.vue'
 
 export default function install(app) {
   app.component('l-header', Header)
@@ -16,4 +17,5 @@ export default function install(app) {
   app.component('s-leading-brands', LeadingBrands)
   app.component('s-product-features', ProductFeatures)
   app.component('s-product-overview', ProductOverview)
+  app.component('a-lang-selector', LangSelector)
 }

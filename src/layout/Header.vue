@@ -1,15 +1,18 @@
 <template>
-  <header class="w-full bg-emerald-50 fixed z-20" @mouseleave="hideMenu">
+  <header class="w-full bg-emerald-50 fixed z-20">
     <nav class="p-4 md:flex md:justify-between md:items-center font-semibold">
       <div class="flex justify-between items-center">
         <a class="ml-6" href="">
           <a-logo animated />
         </a>
+        <div class="flex">
+          <a-lang-selector class="mt-2.5 md:hidden"></a-lang-selector>
+          <span @click="toggleMenu" class="text-3xl cursor-pointer mx-2 md:hidden block">
+            <i-navbar-menu v-if="!isMenuVisible" :width="20" :height="20" />
+            <i-navbar-close-menu v-else :width="20" :height="20" />
+          </span>
 
-        <span @click="toggleMenu" class="text-3xl cursor-pointer mx-2 md:hidden block">
-          <i-navbar-menu v-if="!isMenuVisible" :width="20" :height="20" />
-          <i-navbar-close-menu v-else :width="20" :height="20" />
-        </span>
+        </div>
       </div>
       <div>
         <ul
@@ -33,26 +36,7 @@
             </router-link>
           </li>          
 
-          <div class="relative mr-8 ml-2" >
-            <div
-              class="flex items-center cursor-pointer "             
-              @mouseenter="toggleDropdown"
-            >
-              <img :src="selectedOption?.image" class="h-6 w-6 rounded-full" alt="Language Icon">
-              
-            </div>
-            <div v-if="isDropdownVisible" @mouseleave="hideLangMenu" class="left-1/2 transform -translate-x-1/2 absolute mt-2 bg-white border border-gray-300 rounded-lg shadow-lg">
-              <div
-                v-for="option in languageOptions"
-                :key="option.value"
-                class="flex justify-start items-center py-3 pl-4 pr-10 hover:bg-gray-100 cursor-pointer hover:text-teal-500 duration-500"
-                @click="selectOption(option)"
-              >
-                <img :src="option.image" class="h-6 w-6 rounded-full mr-3" alt="Language Icon">
-                <span class="text-sm font-semibold text-right">{{ option.name }}</span>
-              </div>
-            </div>
-          </div>
+          <a-lang-selector v-if="!isMenuVisible"></a-lang-selector>
           
           <a-button class="px-8" fontSize="lg"> {{ t('button') }} </a-button>
         </ul>
@@ -87,58 +71,13 @@ interface LanguageOption {
       isMenuVisible.value = false
     }  
     
-    const lang = ref<string>(localStorage.getItem('lang') || 'pt-BR');
-
-    const languageOptions: LanguageOption[] = [
-      { value: 'pt-BR', name: 'Português', image: 'src/assets/brazil.png' },
-      { value: 'en', name: 'English', image: 'src/assets/usa.png' },
-      { value: 'es', name: 'Español', image: 'src/assets/spain.png' }
-    ]    
-
-
-    const selectedOption = computed(() => {
-      return languageOptions.find(option => option.value === lang.value)
-    })
-
-    watch(lang, (newLang: string) => {
-      localStorage.setItem('lang', newLang);
-      locale.value = newLang;
-      selectedOption.value = languageOptions.find(option => option.value === newLang)
-    });
-
-    const handleChange = (event: Event) => {
-      const target = event.target as HTMLSelectElement;
-      lang.value = target.value;
-    };
     
-    const isDropdownVisible = ref(false)
-
-    const toggleDropdown = () => {
-      isDropdownVisible.value = !isDropdownVisible.value
-    }
-
-    const selectOption = (option: LanguageOption) => {
-      lang.value = option.value
-      isDropdownVisible.value = false
-    }
-
-    const hideLangMenu = () => {
-      isDropdownVisible.value = false
-    }
 
     return {
       toggleMenu,
       isMenuVisible,
       hideMenu,
-      t,
-      lang,
-      handleChange,
-      languageOptions,
-      selectedOption,
-      isDropdownVisible,
-      toggleDropdown,
-      selectOption,
-      hideLangMenu      
+      t,          
       
     }
   }

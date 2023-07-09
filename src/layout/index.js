@@ -7,6 +7,7 @@ import LeadingBrands from './section/LeadingBrands.vue'
 import ProductFeatures from './section/ProductFeatures.vue'
 import ProductOverview from './section/ProductOverview.vue'
 
+
 export default function install(app) {
   app.component('l-header', Header)
   app.component('l-footer', Footer)
@@ -16,4 +17,5 @@ export default function install(app) {
   app.component('s-leading-brands', LeadingBrands)
   app.component('s-product-features', ProductFeatures)
   app.component('s-product-overview', ProductOverview)
+  
 }

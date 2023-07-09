@@ -14,9 +14,12 @@ import App from './App.vue'
 import router from './router'
 import messages from './i18n'
 
+const lang = localStorage.getItem('lang') || 'pt-BR';
+
 const i18n = createI18n({
-    locale: 'en', // set locale
-    fallbackLocale: 'en', // set fallback locale
+    legacy: false, // you must set `false`, to use Composition API
+    locale: lang, // set locale
+    fallbackLocale: lang, // set fallback locale
     messages, // set locale messages
 })
 

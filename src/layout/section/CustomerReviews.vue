@@ -5,7 +5,7 @@
         Todas Essas Pessoas Já Estão Utilizando Nosso Produto
       </h1>
       <p class="text-center font-semibold md:text-xl mb-10">
-        O único player do mercado que lhe dá liberdade. E aqui está a prova:
+        O único player do mercado que lhe dá liberdade.
       </p>
 
       <c-swiper
@@ -56,76 +56,61 @@ export default {
   setup() {
     const curtomersReviews = ref([
       {
-        resume: 'Curabitur tincidunt cursus tortor sit amet placerat. ',
-        review:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus maximus urna quis consequat. Aenean posuere imperdiet ipsum, in finibus sapien porttitor lobortis. Vestibulum laoreet blandit scelerisque. Morbi aliquet dolor sit amet purus cursus lobortis. Duis at orci turpis.',
-        image:
-          'src/assets/Review1.png',
-        name: 'Tomás Silva',
-        enterprise: 'PLR Powerhouse Strategies'
-      },
-      {
-        resume: 'Etiam ullamcorper nunc justo.',
-        review:
-          'Duis volutpat at ipsum ut posuere. Suspendisse potenti. Suspendisse iaculis eros eu urna placerat, quis finibus nulla bibendum. Pellentesque vel justo nec ligula posuere vehicula. Morbi lacinia risus tortor, at placerat orci volutpat ac. Mauris et porta augue.',
+        resume: '"Aumentou a minha conversão"',
+        review: 'Usei e comecei aproveitar mais as suas funcionalidades, no Dashboard consegui entender até onde a maioria dos meus leads assistiam os VSL com isso consegui melhorar ainda mais a minha copy, consequentemente aumentou a minha conversão.',
         image:
         'src/assets/Review2.png',
         name: 'Anna Silva',
         enterprise: 'ProfitWave Marketing Agency'
       },
       {
-        resume: 'In ultrices nibh nisi, vitae ultricies libero accumsan et.',
-        review:
-          'Ut pretium non nisl at imperdiet. Fusce nunc lorem, aliquam at aliquet et, laoreet ut urna. Nam finibus mollis metus, sit amet dapibus mi porttitor at. Donec vitae tellus nec neque porta efficitur. Integer massa lacus, feugiat ut quam sed, pulvinar fringilla quam. Sed rutrum vitae nibh at mollis. ',
-        image: 'src/assets/Review3.png',
-        name: 'Aline Martins',
-        enterprise: 'AdVantage Media Group'
-      },
-      {
-        resume: 'Nullam id libero sed tellus elementum pulvinar ac quis urna.',
-        review:
-          'Fusce mattis id justo at tristique. Integer malesuada rhoncus magna, et fringilla sapien facilisis ut. Aliquam quis aliquet erat. Maecenas et nulla a neque bibendum maximus id egestas massa.',
-        image:
-        'src/assets/Review4.png',
-        name: 'Douglas Cardoso',
-        enterprise: 'DigitalBoost Marketing Solutions'
-      },
-      {
-        resume: 'Nunc tempor justo ac libero volutpat elementum. ',
-        review:
-          'Nullam lorem urna, suscipit eget placerat eget, tempus nec magna. Pellentesque ut euismod neque. Duis scelerisque mi non odio aliquam, ut vehicula orci dictum. Ut ullamcorper sapien eu enim luctus, tempor hendrerit nibh suscipit.',
+        resume: '"Ajudou a construir a cultura da empresa e a tornar as coisas pessoais"',
+        review: 'O treinamento de funcionários costumava carecer de energia; eles se tornaram impessoais para apenas ver slides e ouvir vozes. Os vídeos ajudou a construir a cultura da empresa e a tornar as coisas pessoais novamente.',
         image:
         'src/assets/Review5.png',
         name: 'Marcos Oliveira',
         enterprise: 'TrafficPro Marketing Solutions'
       },
       {
-        resume: 'Donec rutrum maximus erat, sed bibendum arcu venenatis vitae.',
-        review:
-          'Aenean at urna sit amet neque feugiat dignissim. Vivamus id tincidunt mi, sed imperdiet erat. Duis consequat accumsan dui, sit amet bibendum mi faucibus in. Sed quam massa, elementum id purus eget, volutpat mollis risus. Nunc non pulvinar nulla, eget dictum nunc. ',
+        resume: '"Ajudou a educar e nos conectar com nossa comunidade"',
+        review: 'O vídeo nos ajuda a educar e nos conectar com nossa comunidade de uma maneira mais autêntica.',
         image:
         'src/assets/Review6.png',
         name: 'Danilo Lima ',
         enterprise: 'ProfitMaximizer Media'
       },
       {
-        resume: 'Cras velit mi, interdum non fringilla vel, scelerisque ac tellus.',
-        review:
-          'Sed fermentum lorem non mollis varius. Morbi porta elementum felis. Pellentesque sed neque in neque dapibus commodo. Nullam justo lectus, pharetra sit amet libero ut, tempor porta mauris.',
+        resume: '"Melhor custo benefício hoje no mercado."',
+        review: 'É a ferramenta com melhor custo benefício hoje no mercado. Uma funcionalidade que eu gostei foi a de poder continuar assistindo o vídeo de onde o usuário parou. Minhas conversões tiveram um aumento significativo, vale a pena o investimento.',
+        image:
+        'src/assets/Review4.png',
+        name: 'Douglas Cardoso',
+        enterprise: 'DigitalBoost Marketing Solutions'
+      },
+      {
+        resume: '"É ótimo para nós porque tudo fica em um só lugar"',
+        review: 'Do ponto de vista do marketing, É ótimo para nós porque tudo fica em um só lugar. Depois que o vídeo é feito, é muito fácil para nós compartilhar nas redes sociais e incorporar em sites.',
         image:
         'src/assets/Review7.png',
         name: 'Mariana Dias',
         enterprise: 'PLR Express Digital Marketing'
       },
       {
-        resume: 'Nulla egestas eget eros non sagittis.',
-        review:
-          'Sed at lobortis mauris. Phasellus a velit lectus. Fusce et tellus justo. Maecenas ullamcorper eget libero id condimentum. In sit amet ante nisi. Aliquam erat volutpat. Sed vel consectetur tortor. Nunc molestie vehicula est sit amet mollis. ',
+        resume: '"Super poderosa para transmitir nossos produtos"',
+        review: 'Temos um produto inovador. É uma ferramenta super poderosa para transmitir como nossos produtos funcionam sem páginas intermináveis ​​de infográficos e texto.',
         image:
         'src/assets/Review8.png',
         name: 'Miguel Fernandes',
         enterprise: 'VSL Mastery Marketing'
-      }
+      },
+      {
+        resume: '"Simplesmente sensacional!"',
+        review: 'Ta simplesmente sensacional! Minha página ta carregando em 3 segundos. To aproveitando muito tráfego',
+        image:
+          'src/assets/Review1.png',
+        name: 'Tomás Silva',
+        enterprise: 'PLR Powerhouse Strategies'
+      },
     ])
 
     return {

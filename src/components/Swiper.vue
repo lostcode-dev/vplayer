@@ -1,16 +1,15 @@
 <template>
+  <!--Usado autoplayTimeout para corrigir bug de slides exibindo apenas o 'name'-->
   <swiper
     :modules="modules"
-    :slides-per-view="slidesPerView"
-    :space-between="30"
     @slideChange="onSlideChange"
     :navigation="navigation"
-    :freeMode="true"
-    autoplay
+    :autoplay="autoplayOptions"
+    :autoplayTimeout="3" 
+    :breakpoints="getBreakPoints"
+    :space-between="30"
   >
-    <swiper-slide v-for="(item, index) in (slidesPerView * 2)" :key="index">
-      <slot />
-    </swiper-slide>
+    <slot />
   </swiper>
 </template>
 <script lang="ts">
@@ -18,7 +17,7 @@
 import { Navigation, Autoplay } from 'swiper'
 
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Swiper } from 'swiper/vue'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -26,12 +25,11 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/autoplay'
+import { defineComponent, computed } from 'vue'
 
-
-export default {
+export default defineComponent({
   components: {
-    Swiper,
-    SwiperSlide
+    Swiper
   },
   props: {
     slidesPerView: {
@@ -41,16 +39,48 @@ export default {
     navigation: {
       type: Boolean,
       default: false
+    },
+    breakPoints: {
+      type: Object,
+      default: () => {}
     }
   },
-  setup() {
+  setup(props) {
+    const getBreakPoints = computed(() => {
+      if (props.breakPoints && Object.keys(props.breakPoints).length > 0 ) {
+        return props.breakPoints;
+      }
+      return{
+        320: {
+          slidesPerView: props.slidesPerView - 3
+        },
+        480: {
+          slidesPerView: props.slidesPerView - 2
+        },
+
+        768: {
+          slidesPerView: props.slidesPerView - 1
+        },
+        1200: {
+          slidesPerView: props.slidesPerView
+        }
+      }  
+    })
+
     const onSlideChange = () => {
       console.log('slide change')
     }
+
+    const autoplayOptions = computed(() => ({
+      delay: 4000
+    }))
+
     return {
       modules: [Navigation, Autoplay],
-      onSlideChange
+      onSlideChange,
+      getBreakPoints,
+      autoplayOptions
     }
   }
-}
+})
 </script>

@@ -1,14 +1,14 @@
 <template>
   <div id="controls" class="w-full flex bottom-0 absolute z-40 py-2 bg-slate-200">
     <button @click="isPaused ? $emit('pause') : $emit('play')" class="px-3 py-1">
-      <play v-if="!isPaused" :width="20" :height="20" />
-      <pause v-else :width="20" :height="20" />
+      <i-play v-if="!isPaused" :width="20" :height="20" />
+      <i-pause v-else :width="20" :height="20" />
     </button>
     <button @click="$emit('retro')" class="px-3 py-1">
-      <rewind-ten :width="20" :height="20" />
+      <i-rewind-ten :width="20" :height="20" />
     </button>
     <button @click="$emit('skip')" class="px-3 py-1">
-      <fast-foward-ten :width="20" :height="20" />
+      <i-fast-foward-ten :width="20" :height="20" />
     </button>
     <button class="btn-volume relative px-3 py-1">
       <input
@@ -21,11 +21,11 @@
         @input="changeVolume($event)"
       />
       <span @click="$emit('changeMuted')">
-        <volume-mute v-if="isMuted" :width="20" :height="20" />
-        <volume-off v-else-if="volume == 0" :width="20" :height="20" />
-        <volume-low v-else-if="volume <= 0.3" :width="20" :height="20" />
-        <volume-medium v-else-if="volume > 0.3 && volume <= 0.65" :width="20" :height="20" />
-        <volume-high v-else :width="20" :height="20" />
+        <i-volume-mute v-if="isMuted" :width="20" :height="20" />
+        <i-volume-off v-else-if="volume == 0" :width="20" :height="20" />
+        <i-volume-low v-else-if="volume <= 0.3" :width="20" :height="20" />
+        <i-volume-medium v-else-if="volume > 0.3 && volume <= 0.65" :width="20" :height="20" />
+        <i-volume-high v-else :width="20" :height="20" />
       </span>
     </button>
     
@@ -46,39 +46,15 @@
     </div>
 
     <button @click="$emit('requestFullScreen')" class="px-3 py-1">
-      <full-screen v-if="!isFullScreen" :width="20" :height="20" />
-      <full-screen-exit v-else :width="20" :height="20" />
+      <i-full-screen v-if="!isFullScreen" :width="20" :height="20" />
+      <i-full-screen-exit v-else :width="20" :height="20" />
     </button>
   </div>
 </template>
 
 <script lang="ts">
-import FastFowardTen from './icons/FastFowardTen.vue'
-import FullScreen from './icons/FullScreen.vue'
-import FullScreenExit from './icons/FullScreenExit.vue'
-import Pause from './icons/Pause.vue'
-import Play from './icons/Play.vue'
-import RewindTen from './icons/RewindTen.vue'
-import VolumeHigh from './icons/VolumeHigh.vue'
-import VolumeLow from './icons/VolumeLow.vue'
-import VolumeMedium from './icons/VolumeMedium.vue'
-import VolumeMute from './icons/VolumeMute.vue'
-import VolumeOff from './icons/VolumeOff.vue'
 
 export default {
-  components: {
-    Play,
-    Pause,
-    RewindTen,
-    FastFowardTen,
-    VolumeHigh,
-    VolumeLow,
-    VolumeMedium,
-    VolumeOff,
-    VolumeMute,
-    FullScreenExit,
-    FullScreen
-  },
   props: {
     isPaused: {
       type: Boolean,

@@ -54,7 +54,7 @@ export default {
     watch(lang, (newLang: string) => {
       localStorage.setItem('lang', newLang);
       locale.value = newLang;
-      selectedOption.value = languageOptions.find(option => option.value === newLang)
+      lang.value = newLang;
     });
     
     const handleChange = (event: Event) => {

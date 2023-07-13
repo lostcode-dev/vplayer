@@ -24,27 +24,27 @@ export default {
   setup() {
     const leadingBrandsData = ref([
       {
-        href: ' src/assets/logo1.png ',
+        href: ' /assets/logo1.png ',
         name: ' img1 '
       },
       {
-        href: ' src/assets/logo2.png ',
+        href: ' /assets/logo2.png ',
         name: ' img2 '
       },
       {
-        href: ' src/assets/logo3.jpg ',
+        href: ' /assets/logo3.jpg ',
         name: ' img3 '
       },
       {
-        href: ' src/assets/logo4.jpg ',
+        href: ' /assets/logo4.jpg ',
         name: ' img4 '
       },
       {
-        href: ' src/assets/logo5.jpg',
+        href: ' /assets/logo5.jpg',
         name: ' img5 '
       },
       {
-        href: ' src/assets/logo6.png ',
+        href: ' /assets/logo6.png ',
         name: ' img6 '
       }
     ])

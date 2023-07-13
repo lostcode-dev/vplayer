@@ -41,9 +41,9 @@ export default {
     const lang = ref<string>(localStorage.getItem('lang') || 'pt-BR');
     
     const languageOptions: LanguageOption[] = [
-      { value: 'pt-BR', name: 'Português', image: 'src/assets/brazil.png' },
-      { value: 'en', name: 'English', image: 'src/assets/usa.png' },
-      { value: 'es', name: 'Español', image: 'src/assets/spain.png' }
+      { value: 'pt-BR', name: 'Português', image: '/assets/brazil.png' },
+      { value: 'en', name: 'English', image: '/assets/usa.png' },
+      { value: 'es', name: 'Español', image: '/assets/spain.png' }
     ]    
     
     

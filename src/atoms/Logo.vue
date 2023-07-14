@@ -35,10 +35,7 @@ const props = defineProps({
 const animatedJello = ref(false)
 const animatedBounce = ref(false)
 
-setInterval(() => {
-  animatedBounce.value = !animatedBounce.value
-  console.log(animatedBounce.value)
-}, 3000)
+setInterval(() => { animatedBounce.value = !animatedBounce.value }, 3000)
 </script>
 
 <style scoped>

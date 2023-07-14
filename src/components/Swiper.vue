@@ -1,8 +1,7 @@
 <template>
   <!--Usado autoplayTimeout para corrigir bug de slides exibindo apenas o 'name'-->
   <swiper
-    :modules="modules"
-    @slideChange="onSlideChange"
+    :modules="modules"    
     :navigation="navigation"
     :autoplay="autoplayOptions"
     :autoplayTimeout="3" 
@@ -66,18 +65,14 @@ export default defineComponent({
         }
       }  
     })
-
-    const onSlideChange = () => {
-      console.log('slide change')
-    }
+    
 
     const autoplayOptions = computed(() => ({
       delay: 4000
     }))
 
     return {
-      modules: [Navigation, Autoplay],
-      onSlideChange,
+      modules: [Navigation, Autoplay],      
       getBreakPoints,
       autoplayOptions
     }

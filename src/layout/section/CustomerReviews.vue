@@ -59,7 +59,7 @@ export default {
         resume: '"Aumentou a minha conversão"',
         review: 'Usei e comecei aproveitar mais as suas funcionalidades, no Dashboard consegui entender até onde a maioria dos meus leads assistiam os VSL com isso consegui melhorar ainda mais a minha copy, consequentemente aumentou a minha conversão.',
         image:
-        'src/assets/Review2.png',
+        '/assets/Review2.png',
         name: 'Anna Silva',
         enterprise: 'ProfitWave Marketing Agency'
       },
@@ -67,7 +67,7 @@ export default {
         resume: '"Ajudou a construir a cultura da empresa e a tornar as coisas pessoais"',
         review: 'O treinamento de funcionários costumava carecer de energia; eles se tornaram impessoais para apenas ver slides e ouvir vozes. Os vídeos ajudou a construir a cultura da empresa e a tornar as coisas pessoais novamente.',
         image:
-        'src/assets/Review5.png',
+        '/assets/Review5.png',
         name: 'Marcos Oliveira',
         enterprise: 'TrafficPro Marketing Solutions'
       },
@@ -75,7 +75,7 @@ export default {
         resume: '"Ajudou a educar e nos conectar com nossa comunidade"',
         review: 'O vídeo nos ajuda a educar e nos conectar com nossa comunidade de uma maneira mais autêntica.',
         image:
-        'src/assets/Review6.png',
+        '/assets/Review6.png',
         name: 'Danilo Lima ',
         enterprise: 'ProfitMaximizer Media'
       },
@@ -83,7 +83,7 @@ export default {
         resume: '"Melhor custo benefício hoje no mercado."',
         review: 'É a ferramenta com melhor custo benefício hoje no mercado. Uma funcionalidade que eu gostei foi a de poder continuar assistindo o vídeo de onde o usuário parou. Minhas conversões tiveram um aumento significativo, vale a pena o investimento.',
         image:
-        'src/assets/Review4.png',
+        '/assets/Review4.png',
         name: 'Douglas Cardoso',
         enterprise: 'DigitalBoost Marketing Solutions'
       },
@@ -91,7 +91,7 @@ export default {
         resume: '"É ótimo para nós porque tudo fica em um só lugar"',
         review: 'Do ponto de vista do marketing, É ótimo para nós porque tudo fica em um só lugar. Depois que o vídeo é feito, é muito fácil para nós compartilhar nas redes sociais e incorporar em sites.',
         image:
-        'src/assets/Review7.png',
+        '/assets/Review7.png',
         name: 'Mariana Dias',
         enterprise: 'PLR Express Digital Marketing'
       },
@@ -99,7 +99,7 @@ export default {
         resume: '"Super poderosa para transmitir nossos produtos"',
         review: 'Temos um produto inovador. É uma ferramenta super poderosa para transmitir como nossos produtos funcionam sem páginas intermináveis ​​de infográficos e texto.',
         image:
-        'src/assets/Review8.png',
+        '/assets/Review8.png',
         name: 'Miguel Fernandes',
         enterprise: 'VSL Mastery Marketing'
       },
@@ -107,7 +107,7 @@ export default {
         resume: '"Simplesmente sensacional!"',
         review: 'Ta simplesmente sensacional! Minha página ta carregando em 3 segundos. To aproveitando muito tráfego',
         image:
-          'src/assets/Review1.png',
+          '/assets/Review1.png',
         name: 'Tomás Silva',
         enterprise: 'PLR Powerhouse Strategies'
       },
